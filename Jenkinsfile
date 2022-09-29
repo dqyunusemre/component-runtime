@@ -137,7 +137,7 @@ spec:
                                 //Clean possible M2 corruptions - TDI-48532
                                 echo 'Clean possible M2 corruptions'
                                 sh """
-                                    grep --recursive --word-regexp --files-with-matches --regexp '\u0000' ~/.m2/repository
+                                    grep --recursive --word-regexp --files-with-matches --regexp '\\u0000' ~/.m2/repository
                                 """
 
                                 //grep --recursive --word-regexp --files-with-matches --regexp '\u0000' ~/.m2/repository | xargs -I % rm %
