@@ -150,6 +150,7 @@ spec:
                             }
                             catch (ignored) {
                                 // The job must not fail if the script fails
+                            }
                         }
                     }
                 }
