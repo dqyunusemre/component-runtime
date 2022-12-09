@@ -275,8 +275,7 @@
           </execution>
         </executions>
       </plugin>
-      <plugin>
-        <!--
+      <plugin><!--
         mvn clean verify dockerfile:build -P dev-tsbi
         docker tag talend/common/tacokit/component-server:${release} artifactory.datapwn.com/tlnd-docker-dev/talend/common/tacokit/component-server:${release}
         docker push artifactory.datapwn.com/tlnd-docker-dev/talend/common/tacokit/component-server:${release}
