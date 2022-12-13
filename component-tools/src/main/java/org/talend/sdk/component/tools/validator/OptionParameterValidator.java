@@ -51,12 +51,14 @@ public class OptionParameterValidator implements Validator {
     public Stream<String> validate(final AnnotationFinder finder, final List<Class<?>> components) {
         final Set<Class<?>> emitterClassesOfPartition = finder.findAnnotatedMethods(Emitter.class)
                 .stream()
+                .filter(m -> !m.isSynthetic()) // Ignore synthetic methods which might be added by instrumenting tools
                 .filter(m -> m.getDeclaringClass().isAnnotationPresent(PartitionMapper.class))
                 .map(Method::getReturnType)
                 .collect(Collectors.toSet());
 
         return finder.findAnnotatedMethods(PostConstruct.class)
                 .stream()
+                .filter(m -> !m.isSynthetic()) // Ignore synthetic methods which might be added by instrumenting tools
                 .filter(m -> m.getParameterCount() != 0)
                 .filter(m -> emitterClassesOfPartition.contains(m.getDeclaringClass())
                         || m.getDeclaringClass().isAnnotationPresent(Emitter.class))
