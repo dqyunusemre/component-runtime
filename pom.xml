@@ -160,7 +160,7 @@
     <talend.build.name.base>${project.groupId}.runtime</talend.build.name.base>
     <talend.build.name>${talend.build.name.base}.${project.artifactId}</talend.build.name>
 
-    <xbean.version>4.20</xbean.version>
+    <xbean.version>4.22</xbean.version>
     <!-- do not update without updating test-->
     <xbean.test.version>4.9</xbean.test.version>
     <xerces.version>2.12.0</xerces.version>
@@ -215,7 +215,7 @@
 
     <!-- for the starter -->
     <mvn.version>3.8.6</mvn.version>
-    <mvn-minimal.version>3.6.0</mvn-minimal.version>
+    <mvn-minimal.version>3.7.0</mvn-minimal.version>
     <maven-shared-utils.version>3.3.4</maven-shared-utils.version>
 
     <beam.version>2.42.0</beam.version>
