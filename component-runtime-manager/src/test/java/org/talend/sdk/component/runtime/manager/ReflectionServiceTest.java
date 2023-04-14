@@ -728,6 +728,59 @@ class ReflectionServiceTest {
         assertTrue(tableOwner.table.get(0).nestedList.isEmpty());
     }
 
+    /**
+     * checkbox = true  : show firstField
+     * checkbox = false : show secondField
+     * @throws NoSuchMethodException
+     */
+    @Test
+    void simpleRequiredActiveIf_false() throws NoSuchMethodException {
+        final ParameterModelService service = new ParameterModelService(new PropertyEditorRegistry());
+        final List<ParameterMeta> metas = service
+                .buildParameterMetas(MethodsHolder.class.getMethod("visibility", MethodsHolder.SimpleActiveConfig.class),
+                        "def", new BaseParameterEnricher.Context(new LocalConfigurationService(emptyList(), "test")));
+        final Object[] params = reflectionService
+                .parameterFactory(MethodsHolder.class.getMethod("visibility", MethodsHolder.SimpleActiveConfig.class),
+                        emptyMap(), metas)
+                .apply(new HashMap<String, String>() {
+
+                    {
+                        put("value.checkbox", "false");
+                        put("value.secondField", "shown");
+                    }
+                });
+
+        assertTrue(MethodsHolder.SimpleActiveConfig.class.isInstance(params[0]));
+        final MethodsHolder.SimpleActiveConfig value = MethodsHolder.SimpleActiveConfig.class.cast(params[0]);
+        assertEquals("shown", value.getSecondField());
+        assertFalse(value.isCheckbox());
+        assertNull(value.getFirstField());
+    }
+
+    @Test
+    void simpleRequiredActiveIf_true() throws NoSuchMethodException {
+        final ParameterModelService service = new ParameterModelService(new PropertyEditorRegistry());
+        final List<ParameterMeta> metas = service
+                .buildParameterMetas(MethodsHolder.class.getMethod("visibility", MethodsHolder.SimpleActiveConfig.class),
+                        "def", new BaseParameterEnricher.Context(new LocalConfigurationService(emptyList(), "test")));
+        final Object[] params = reflectionService
+                .parameterFactory(MethodsHolder.class.getMethod("visibility", MethodsHolder.SimpleActiveConfig.class),
+                        emptyMap(), metas)
+                .apply(new HashMap<String, String>() {
+
+                    {
+                        put("value.checkbox", "true");
+                        put("value.firstField", "shown");
+                    }
+                });
+
+        assertTrue(MethodsHolder.SimpleActiveConfig.class.isInstance(params[0]));
+        final MethodsHolder.SimpleActiveConfig value = MethodsHolder.SimpleActiveConfig.class.cast(params[0]);
+        assertEquals("shown", value.getFirstField());
+        assertTrue(value.isCheckbox());
+        assertNull(value.getSecondField());
+    }
+
     @Test
     void nestedRequiredActiveIf() throws NoSuchMethodException {
         final ParameterModelService service = new ParameterModelService(new PropertyEditorRegistry());

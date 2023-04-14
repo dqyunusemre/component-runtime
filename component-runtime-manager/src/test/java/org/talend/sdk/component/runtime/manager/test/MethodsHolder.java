@@ -77,6 +77,10 @@ public class MethodsHolder {
         // no-op
     }
 
+    public void visibility(final SimpleActiveConfig value) {
+        // no-op
+    }
+
     public void visibility(final RestDatastore value) {
         // no-op
     }
@@ -168,5 +172,21 @@ public class MethodsHolder {
             @Pattern("^https?://.+$")
             private String url = "";
         }
+    }
+
+    @Getter
+    public static class SimpleActiveConfig {
+        @Option
+        private boolean checkbox;
+
+        @Option
+        @ActiveIf(target = "checkbox", value = "true")
+        @Required
+        private String firstField = null;
+
+        @Option
+        @ActiveIf(target = "checkbox", value = "false")
+        @Required
+        private String secondField = null;
     }
 }
