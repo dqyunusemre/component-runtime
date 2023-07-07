@@ -22,7 +22,7 @@ content:
   sources:
   - url: ../../../..
     branches:
-      - master
+      - acatoire/TCOMP-2483_branch_doc_creation
     start_path: documentation/src/main/antora
 ui:
   bundle:
