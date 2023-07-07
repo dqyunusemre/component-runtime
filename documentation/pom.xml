@@ -914,7 +914,7 @@
       <activation>
         <property>
           <name>env.BRANCH_NAME</name>
-          <value>master</value>
+          <value>acatoire/TCOMP-2483_branch_doc_creation</value>
         </property>
       </activation>
       <build>

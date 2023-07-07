@@ -66,13 +66,14 @@ new AntBuilder().copy(todir: workDir.absolutePath, overwrite: true) {
     fileset(dir: source.absolutePath)
 }
 
-def message = "Updating the website with version ${project.version} // " + new Date().toString()
-git.add().addFilepattern(".").call()
-if (Boolean.getBoolean("component.gh-page.debug")) {
-    def status = git.status().call()
-    log.info("Status:\n  Changed: ${status.changed}\n  Added: ${status.added}\n  Removed: ${status.removed}")
-}
-git.commit().setAll(true).setMessage(message).call()
-git.status().call()
-git.push().setCredentialsProvider(credentialsProvider).add(branch).call()
-log.info("Updated the website on ${new Date()}")
+//def message = "Updating the website with version ${project.version} // " + new Date().toString()
+//git.add().addFilepattern(".").call()
+//if (Boolean.getBoolean("component.gh-page.debug")) {
+//    def status = git.status().call()
+//    log.info("Status:\n  Changed: ${status.changed}\n  Added: ${status.added}\n  Removed: ${status.removed}")
+//}
+//
+//git.commit().setAll(true).setMessage(message).call()
+//git.status().call()
+//git.push().setCredentialsProvider(credentialsProvider).add(branch).call()
+//log.info("Updated the website on ${new Date()}")
