@@ -210,7 +210,7 @@
 
     <!-- deprecated after -->
     <talend-icon.version>3.8.0</talend-icon.version>
-    <talend-ui.version>5.23.0</talend-ui.version>
+    <talend-ui.version>6.32.0</talend-ui.version>
 
     <!-- for the starter -->
     <mvn.version>3.8.8</mvn.version>
@@ -253,6 +253,7 @@
     <jruby.version>9.2.19.0</jruby.version>
     <node.version>v16.14.0</node.version>
     <npm.version>8.5.1</npm.version>
+    <npm.environment>production</npm.environment>
     <frontend.version>1.12.1</frontend.version>
 
     <!-- misc dependencies -->
