@@ -199,8 +199,9 @@ public Schema guessMethodName(final @Option procConf) {...}
 NOTE: As you may pass other parameters to method, ensure to use the above naming : _incomingSchema_ for the schema and _branch_ for the outgoing branch.
 
 The schema element must comply with the following requirements:
-* It has to be a string not a sub json object
-* The json has to be flat
+
+- It has to be a string not a sub json object
+- The json has to be flat
 
 Example:
 [source,java]
