@@ -11,7 +11,7 @@
     <title>User Interface API :: Talend Component Kit Developer Reference Guide</title>
     <link rel="canonical" href="https://talend.github.io/component-runtime/main/latest/ref-ui.html">
     <meta name="generator" content="Antora 3.0.1">
-<meta name="date" content="2024-09-02T00:48:56.829Z" scheme="YYYY-MM-DDTHH:mm:ss.sssZ">
+<meta name="date" content="2024-09-02T09:54:30.991Z" scheme="YYYY-MM-DDTHH:mm:ss.sssZ">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha256-NuCn4IvuZXdBaFKJOAcsU2Q3ZpwbdFisd5dux4jkQ5w=" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/idea.min.css" integrity="sha256-rD61BPsgKHzJPyg7vpXaYOw6tMYuY2fz1p9033NYeM8=" crossorigin="anonymous" />
@@ -82,15 +82,12 @@
         <a class="navbar-single-link" href="https://talend.github.io/component-runtime/main/latest/index.html">Talend Component Kit</a>
         <div class="btn-group navbar-versions">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                ${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}
+                1.65.0 (dev)
               <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
                 <li class="navbar-item version">
-                    <a href="index.html">${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</a>
-                </li>
-                <li class="navbar-item version">
-                    <a href="../1.65.0/index.html">1.65.0</a>
+                    <a href="index.html">1.65.0</a>
                 </li>
                 <li class="navbar-item version">
                     <a href="../1.64.6/index.html">1.64.6</a>
@@ -220,6 +217,9 @@
                 </li>
                 <li class="navbar-item version">
                     <a href="../1.39.3/index.html">1.39.3</a>
+                </li>
+                <li class="navbar-item version">
+                    <a href="../1.38.15/index.html">1.38.15</a>
                 </li>
                 <li class="navbar-item version">
                     <a href="../1.38.14/index.html">1.38.14</a>
@@ -430,7 +430,7 @@
     </nav>
 </header>
             <main class="main">
-              <div class="navigation-container grey-background hidden-xs col-sm-2" data-component="main" data-version="${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}">
+              <div class="navigation-container grey-background hidden-xs col-sm-2" data-component="main" data-version="1.65.0">
   <aside class="navigation" role="navigation">
     <div class="panels">
       <div class="input-group nav-filter-group">
@@ -663,9 +663,6 @@
   </li>
   <li data-depth="2">
     <a class="menu-link" href="documentation-rest.html">Component server and HTTP API</a>
-  </li>
-  <li data-depth="2">
-    <a class="menu-link" href="vault-proxy.html">Component Server Vault Proxy</a>
   </li>
 </ul>
   </li>
@@ -929,6 +926,31 @@ the logic to handle forms (gridlayout names) is to use the only layout if there 
 </div>
 </div>
 <div class="sect1">
+<h2 id="_basedonschema"><a class="anchor" href="#_basedonschema"></a>@BasedOnSchema</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Mark a table column filled by component&#8217;s schema auto. Only for studio.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>API: <code>@org.talend.sdk.component.api.configuration.ui.widget.BasedOnSchema</code></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_snippets_8"><a class="anchor" href="#_snippets_8"></a>Snippets</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">{
+  "ui::basedonschema":"true"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_code"><a class="anchor" href="#_code"></a>@Code</h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -942,7 +964,7 @@ the logic to handle forms (gridlayout names) is to use the only layout if there 
 </ul>
 </div>
 <div class="sect2">
-<h3 id="_snippets_8"><a class="anchor" href="#_snippets_8"></a>Snippets</h3>
+<h3 id="_snippets_9"><a class="anchor" href="#_snippets_9"></a>Snippets</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">{
@@ -967,7 +989,7 @@ the logic to handle forms (gridlayout names) is to use the only layout if there 
 </ul>
 </div>
 <div class="sect2">
-<h3 id="_snippets_9"><a class="anchor" href="#_snippets_9"></a>Snippets</h3>
+<h3 id="_snippets_10"><a class="anchor" href="#_snippets_10"></a>Snippets</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">{
@@ -992,32 +1014,90 @@ the logic to handle forms (gridlayout names) is to use the only layout if there 
 </ul>
 </div>
 <div class="sect2">
-<h3 id="_snippets_10"><a class="anchor" href="#_snippets_10"></a>Snippets</h3>
+<h3 id="_snippets_11"><a class="anchor" href="#_snippets_11"></a>Snippets</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">{
-  "ui::datetime":"time"
+  "ui::datetime":"time",
+  "ui::datetime::useSeconds":"false"
 }</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">{
-  "ui::datetime":"date"
+  "ui::datetime":"date",
+  "ui::datetime::dateFormat":"test"
 }</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">{
-  "ui::datetime":"datetime"
+  "ui::datetime":"datetime",
+  "ui::datetime::dateFormat":"test",
+  "ui::datetime::useSeconds":"false",
+  "ui::datetime::useUTC":"false"
 }</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">{
-  "ui::datetime":"zoneddatetime"
+  "ui::datetime":"zoneddatetime",
+  "ui::datetime::dateFormat":"test",
+  "ui::datetime::useSeconds":"false",
+  "ui::datetime::useUTC":"false"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_modulelist"><a class="anchor" href="#_modulelist"></a>@ModuleList</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Mark a string field as being represented by selected module list widget, only for studio</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>API: <code>@org.talend.sdk.component.api.configuration.ui.widget.ModuleList</code></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_snippets_12"><a class="anchor" href="#_snippets_12"></a>Snippets</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">{
+  "ui::modulelist":"true"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_path"><a class="anchor" href="#_path"></a>@Path</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Mark a option as being represented by file or directory widget. Only for studio.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>API: <code>@org.talend.sdk.component.api.configuration.ui.widget.Path</code></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_snippets_13"><a class="anchor" href="#_snippets_13"></a>Snippets</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">{
+  "ui::path::value":"null"
 }</code></pre>
 </div>
 </div>
@@ -1038,7 +1118,7 @@ the logic to handle forms (gridlayout names) is to use the only layout if there 
 </ul>
 </div>
 <div class="sect2">
-<h3 id="_snippets_11"><a class="anchor" href="#_snippets_11"></a>Snippets</h3>
+<h3 id="_snippets_14"><a class="anchor" href="#_snippets_14"></a>Snippets</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">{
@@ -1065,7 +1145,7 @@ the logic to handle forms (gridlayout names) is to use the only layout if there 
 </ul>
 </div>
 <div class="sect2">
-<h3 id="_snippets_12"><a class="anchor" href="#_snippets_12"></a>Snippets</h3>
+<h3 id="_snippets_15"><a class="anchor" href="#_snippets_15"></a>Snippets</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">{
@@ -1084,7 +1164,7 @@ the logic to handle forms (gridlayout names) is to use the only layout if there 
 
                 <ul>
                     <li>
-                      <a class="article-side-actions-link" target="_blank" href="https://github.com/Talend/component-runtime/blob/component-runtime-1.38.15/documentation/src/main/antora/modules/ROOT/pages/ref-ui.adoc">
+                      <a class="article-side-actions-link" target="_blank" href="https://github.com/Talend/component-runtime/edit/master/documentation/src/main/antora/modules/ROOT/pages/ref-ui.adoc">
                         <i class="fa fa-edit"></i> &nbsp; &nbsp; Suggest an edit
                       </a>
                     </li>
