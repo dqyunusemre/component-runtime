@@ -6,16 +6,16 @@
     <title>Talend Component Kit Developer Reference Guide :: Component server and HTTP API</title>
     <link rel="canonical" href="https://talend.github.io/component-runtime/main/latest/documentation-rest.html">
     <meta name="description" content="Learn about Talend Component Kit HTTP API and the component server">
-    <meta name="keywords" content="REST API, component-server">
+    <meta name="keywords" content="REST API">
     <meta name="generator" content="Talend Component Kit Generator">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Component server and HTTP API :: Talend Component Kit Developer Reference Guide</title>
     <link rel="canonical" href="https://talend.github.io/component-runtime/main/latest/documentation-rest.html">
     <meta name="description" content="Learn about Talend Component Kit HTTP API and the component server">
-    <meta name="keywords" content="REST API, component-server">
+    <meta name="keywords" content="REST API">
     <meta name="generator" content="Antora 3.0.1">
-<meta name="date" content="2024-09-03T14:43:02.398Z" scheme="YYYY-MM-DDTHH:mm:ss.sssZ">
+<meta name="date" content="2024-09-04T00:49:46.837Z" scheme="YYYY-MM-DDTHH:mm:ss.sssZ">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha256-NuCn4IvuZXdBaFKJOAcsU2Q3ZpwbdFisd5dux4jkQ5w=" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/idea.min.css" integrity="sha256-rD61BPsgKHzJPyg7vpXaYOw6tMYuY2fz1p9033NYeM8=" crossorigin="anonymous" />
@@ -86,12 +86,15 @@
         <a class="navbar-single-link" href="https://talend.github.io/component-runtime/main/latest/index.html">Talend Component Kit</a>
         <div class="btn-group navbar-versions">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                1.65.0 (dev)
+                ${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}
               <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
                 <li class="navbar-item version">
-                    <a href="index.html">1.65.0</a>
+                    <a href="index.html">${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</a>
+                </li>
+                <li class="navbar-item version">
+                    <a href="../1.65.0/index.html">1.65.0</a>
                 </li>
                 <li class="navbar-item version">
                     <a href="../1.64.6/index.html">1.64.6</a>
@@ -434,7 +437,7 @@
     </nav>
 </header>
             <main class="main">
-              <div class="navigation-container grey-background hidden-xs col-sm-2" data-component="main" data-version="1.65.0">
+              <div class="navigation-container grey-background hidden-xs col-sm-2" data-component="main" data-version="${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}">
   <aside class="navigation" role="navigation">
     <div class="panels">
       <div class="input-group nav-filter-group">
@@ -667,6 +670,9 @@
   </li>
   <li data-depth="2">
     <a class="menu-link" href="documentation-rest.html">Component server and HTTP API</a>
+  </li>
+  <li data-depth="2">
+    <a class="menu-link" href="vault-proxy.html">Component Server Vault Proxy</a>
   </li>
 </ul>
   </li>
@@ -919,18 +925,6 @@ the configuration is read from system properties, environment variables, &#8230;
 <dt class="hdlist1">talend.component.server.icon.paths</dt>
 <dd>
 <p>Default value: <code>icons/%s.svg,icons/svg/%s.svg,icons/%s_icon32.png,icons/png/%s_icon32.png</code>. These patterns are used to find the icons in the classpath(s).</p>
-</dd>
-<dt class="hdlist1">talend.component.server.icon.theme.default</dt>
-<dd>
-<p>Default value: <code>light</code>. Icon default theme (light/dark).</p>
-</dd>
-<dt class="hdlist1">talend.component.server.icon.theme.legacy</dt>
-<dd>
-<p>Default value: <code>true</code>. Do we support legacy (not themed) icons. If true, lookup will be done if not themed icon found.</p>
-</dd>
-<dt class="hdlist1">talend.component.server.icon.theme.support</dt>
-<dd>
-<p>Default value: <code>true</code>. Do we support icons theme.</p>
 </dd>
 <dt class="hdlist1">talend.component.server.jaxrs.exceptionhandler.defaultMessage</dt>
 <dd>
@@ -1676,7 +1670,20 @@ You can check the exact configuration in the <code>component-runtime/images/comp
 <div class="sect3">
 <h4 id="_json_profile"><a class="anchor" href="#_json_profile"></a>JSON profile</h4>
 <div class="paragraph">
-<p>The JSON profile logs on the console using the <code>CONSOLE_LOG_LEVEL</code> configuration as the default profile. Events are logged in the following format:</p>
+<p>The JSON profile does the following:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Logs on the console using the <code>CONSOLE_LOG_LEVEL</code> configuration as the default profile. It uses the formatting shown below.</p>
+</li>
+<li>
+<p>If the <code>TRACING_KAFKA_URL</code> environment variable is set, it logs the opentracing data on the defined Kafka using the topic <code>TRACING_KAFKA_TOPIC</code>. This level can be customized by setting the <code>KAFKA_LOG_LEVEL</code> environment variable (<code>INFO</code> by default).</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Events are logged in the following format:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1716,6 +1723,45 @@ You can check the exact configuration in the <code>component-runtime/images/comp
 <h4 id="_kafka_profile"><a class="anchor" href="#_kafka_profile"></a>KAFKA profile</h4>
 <div class="paragraph">
 <p>This profile is very close to the JSON profile and also adds the <code>LOG_KAFKA_TOPIC</code> and <code>LOG_KAFKA_URL</code> configuration. The difference is that it logs the default logs on Kafka in addition to the tracing logs.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_opentracing"><a class="anchor" href="#_opentracing"></a>OpenTracing</h4>
+<div class="paragraph">
+<p>The component server uses Geronimo OpenTracing to monitor request.</p>
+</div>
+<div class="paragraph">
+<p>The tracing can be activated by setting the <code>TRACING_ON</code> environment variable to <code>true</code>.</p>
+</div>
+<div class="paragraph">
+<p>The tracing rate is configurable by setting the <code>TRACING_SAMPLING_RATE</code> environment variable.
+It accepts <code>0</code> (none) and <code>1</code> (all, default) as values to ensure the consistency of the reporting.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can find all the details on the configuration in <code>org.talend.sdk.component.server.configuration.OpenTracingConfigSource</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Run docker image with tracing on:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">sudo docker run -p 8080:8080 \
+	-e TRACING_ON=true \
+	tacokit/component-server</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By default, Geronimo OpenTracing will log the spans in a Zipking format so you can use the Kafka profile as explained before
+to wire it over any OpenTracing backend.</p>
 </div>
 </div>
 </div>
@@ -1847,7 +1893,7 @@ Since the server relies on CDI (Apache OpenWebBeans) you can use that technology
 
                 <ul>
                     <li>
-                      <a class="article-side-actions-link" target="_blank" href="https://github.com/Talend/component-runtime/edit/master/documentation/src/main/antora/modules/ROOT/pages/documentation-rest.adoc">
+                      <a class="article-side-actions-link" target="_blank" href="https://github.com/Talend/component-runtime/blob/component-runtime-1.38.16/documentation/src/main/antora/modules/ROOT/pages/documentation-rest.adoc">
                         <i class="fa fa-edit"></i> &nbsp; &nbsp; Suggest an edit
                       </a>
                     </li>

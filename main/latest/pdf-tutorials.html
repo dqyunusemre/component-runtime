@@ -11,7 +11,7 @@
     <title>Tutorials :: Talend Component Kit Developer Reference Guide</title>
     <link rel="canonical" href="https://talend.github.io/component-runtime/main/latest/pdf-tutorials.html">
     <meta name="generator" content="Antora 3.0.1">
-<meta name="date" content="2024-09-03T14:43:02.456Z" scheme="YYYY-MM-DDTHH:mm:ss.sssZ">
+<meta name="date" content="2024-09-04T00:49:46.898Z" scheme="YYYY-MM-DDTHH:mm:ss.sssZ">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha256-NuCn4IvuZXdBaFKJOAcsU2Q3ZpwbdFisd5dux4jkQ5w=" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/idea.min.css" integrity="sha256-rD61BPsgKHzJPyg7vpXaYOw6tMYuY2fz1p9033NYeM8=" crossorigin="anonymous" />
@@ -82,12 +82,15 @@
         <a class="navbar-single-link" href="https://talend.github.io/component-runtime/main/latest/index.html">Talend Component Kit</a>
         <div class="btn-group navbar-versions">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                1.65.0 (dev)
+                ${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}
               <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
                 <li class="navbar-item version">
-                    <a href="index.html">1.65.0</a>
+                    <a href="index.html">${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</a>
+                </li>
+                <li class="navbar-item version">
+                    <a href="../1.65.0/index.html">1.65.0</a>
                 </li>
                 <li class="navbar-item version">
                     <a href="../1.64.6/index.html">1.64.6</a>
@@ -430,7 +433,7 @@
     </nav>
 </header>
             <main class="main">
-              <div class="navigation-container grey-background hidden-xs col-sm-2" data-component="main" data-version="1.65.0">
+              <div class="navigation-container grey-background hidden-xs col-sm-2" data-component="main" data-version="${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}">
   <aside class="navigation" role="navigation">
     <div class="panels">
       <div class="input-group nav-filter-group">
@@ -664,6 +667,9 @@
   <li data-depth="2">
     <a class="menu-link" href="documentation-rest.html">Component server and HTTP API</a>
   </li>
+  <li data-depth="2">
+    <a class="menu-link" href="vault-proxy.html">Component Server Vault Proxy</a>
+  </li>
 </ul>
   </li>
   <li data-depth="1">
@@ -758,7 +764,7 @@ The component designed in this tutorial is a processor and does not require nor 
 </div>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/tutorial_build_job_run.png" target="_blank" rel="noopener"><img src="_images/tutorial_build_job_run.png" alt="Job run"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/tutorial_build_job_run.png" target="_blank" rel="noopener"><img src="_images/tutorial_build_job_run.png" alt="Job run"></a>
 </div>
 </div>
 <div class="sect2">
@@ -794,7 +800,7 @@ The component designed in this tutorial is a processor and does not require nor 
 <p>Start IntelliJ and create a new project. In the available options, you should see <strong>Talend Component</strong>.<br></p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/intellij_new_component_project.png" target="_blank" rel="noopener"><img src="_images/intellij_new_component_project.png" alt="New project"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/intellij_new_component_project.png" target="_blank" rel="noopener"><img src="_images/intellij_new_component_project.png" alt="New project"></a>
 </div>
 </div>
 </li>
@@ -806,7 +812,7 @@ The <strong>Talend Component Kit Starter</strong> opens.</p>
 <p>Enter the component and project metadata. Change the default values, for example as presented in the screenshot below:<br></p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/intellij_tutorial_project_metadata.png" target="_blank" rel="noopener"><img src="_images/intellij_tutorial_project_metadata.png" alt="Project metadata"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/intellij_tutorial_project_metadata.png" target="_blank" rel="noopener"><img src="_images/intellij_tutorial_project_metadata.png" alt="Project metadata"></a>
 </div>
 </div>
 <div class="ulist">
@@ -830,7 +836,7 @@ The <strong>Talend Component Kit Starter</strong> opens.</p>
 <p>Select <strong>Configuration Model</strong> and add a string type field named <code>level</code>. This input field will be used in the component configuration for final users to enter additional information to display in the logs.<br></p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/tutorial_component_configuration_model.png" target="_blank" rel="noopener"><img src="_images/tutorial_component_configuration_model.png" alt="Configuration Model"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/tutorial_component_configuration_model.png" target="_blank" rel="noopener"><img src="_images/tutorial_component_configuration_model.png" alt="Configuration Model"></a>
 </div>
 </div>
 </li>
@@ -838,7 +844,7 @@ The <strong>Talend Component Kit Starter</strong> opens.</p>
 <p>In the <strong>Input(s) / Output(s)</strong> section, click the default <strong>MAIN</strong> input branch to access its detail, and make sure that the record model is set to <strong>Generic</strong>. Leave the <strong>Name</strong> of the branch with its default <code>MAIN</code> value.<br></p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/tutorial_component_generic_input.png" target="_blank" rel="noopener"><img src="_images/tutorial_component_generic_input.png" alt="Generic Input"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/tutorial_component_generic_input.png" target="_blank" rel="noopener"><img src="_images/tutorial_component_generic_input.png" alt="Generic Input"></a>
 </div>
 </div>
 </li>
@@ -867,7 +873,7 @@ Because the component is a processor, it has an output branch by default. A proc
 </div>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/tutorial_generated_project_view.png" target="_blank" rel="noopener"><img src="_images/tutorial_generated_project_view.png" alt="Project view"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/tutorial_generated_project_view.png" target="_blank" rel="noopener"><img src="_images/tutorial_generated_project_view.png" alt="Project view"></a>
 </div>
 </div>
 <div class="ulist">
@@ -917,7 +923,7 @@ Because the component is a processor, it has an output branch by default. A proc
 <p>From the component project in IntelliJ, open a Terminal and make sure that the selected directory is the root of the project. All commands shown in this tutorial are performed from this location.<br></p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/tutorial_intellij_terminal_blank.png" target="_blank" rel="noopener"><img src="_images/tutorial_intellij_terminal_blank.png" alt="Compile terminal"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/tutorial_intellij_terminal_blank.png" target="_blank" rel="noopener"><img src="_images/tutorial_intellij_terminal_blank.png" alt="Compile terminal"></a>
 </div>
 </div>
 </li>
@@ -945,7 +951,7 @@ Replace the path with your own value. If the path contains spaces (for example, 
 <p>Make sure the build is successful.<br></p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/tutorial_deploy_in_studio_success.png" target="_blank" rel="noopener"><img src="_images/tutorial_deploy_in_studio_success.png" alt="Build success"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/tutorial_deploy_in_studio_success.png" target="_blank" rel="noopener"><img src="_images/tutorial_deploy_in_studio_success.png" alt="Build success"></a>
 </div>
 </div>
 </li>
@@ -960,7 +966,7 @@ Replace the path with your own value. If the path contains spaces (for example, 
 <p>Notice that the <strong>level</strong> field specified in the configuration model of the component in the <strong>Talend Component Kit Starter</strong> is present.<br></p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/tutorial_first_component_in_studio.png" target="_blank" rel="noopener"><img src="_images/tutorial_first_component_in_studio.png" alt="Component in Studio"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/tutorial_first_component_in_studio.png" target="_blank" rel="noopener"><img src="_images/tutorial_first_component_in_studio.png" alt="Component in Studio"></a>
 </div>
 </div>
 </li>
@@ -1069,7 +1075,7 @@ Replace the path with your own value. If the path contains spaces (for example, 
 <p>Set the <strong>Number of Rows for RowGenerator</strong> to <code>10</code>.<br></p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/tutorial_build_job_trowgenerator.png" target="_blank" rel="noopener"><img src="_images/tutorial_build_job_trowgenerator.png" alt="tRowGenerator"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/tutorial_build_job_trowgenerator.png" target="_blank" rel="noopener"><img src="_images/tutorial_build_job_trowgenerator.png" alt="tRowGenerator"></a>
 </div>
 </div>
 </li>
@@ -1083,7 +1089,7 @@ Replace the path with your own value. If the path contains spaces (for example, 
 <p>Open the <strong>TutorialFamilyLogger</strong> component and set the <strong>level</strong> field to <code>info</code>.<br></p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/tutorial_build_job_logger.png" target="_blank" rel="noopener"><img src="_images/tutorial_build_job_logger.png" alt="Logger"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/tutorial_build_job_logger.png" target="_blank" rel="noopener"><img src="_images/tutorial_build_job_logger.png" alt="Logger"></a>
 </div>
 </div>
 </li>
@@ -1095,7 +1101,7 @@ The job is executed. You can observe in the console that each of the 10 generate
 </div>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/tutorial_build_job_run.png" target="_blank" rel="noopener"><img src="_images/tutorial_build_job_run.png" alt="Job run"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/tutorial_build_job_run.png" target="_blank" rel="noopener"><img src="_images/tutorial_build_job_run.png" alt="Job run"></a>
 </div>
 </div>
 </div>
@@ -1188,7 +1194,7 @@ When defining a project using the Starter, do not refresh the page to avoid losi
 <p>Add any facet you need. For example, add the <strong>Talend Component Kit Testing</strong> facet to your project to automatically generate unit tests for the components created in the project.<br></p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/starter/starter_test_facet.png" target="_blank" rel="noopener"><img src="_images/starter/starter_test_facet.png" alt="Test facet"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/starter/starter_test_facet.png" target="_blank" rel="noopener"><img src="_images/starter/starter_test_facet.png" alt="Test facet"></a>
 </div>
 </div>
 </li>
@@ -1229,7 +1235,7 @@ Input and Output components without dataset (itself containing a datastore) will
 <p>Components added to the project using <strong>Add A Component</strong> can now be processors, input or output components.<br></p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/starter/starter_activate_io.png" target="_blank" rel="noopener"><img src="_images/starter/starter_activate_io.png" alt="Activate IO"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/starter/starter_activate_io.png" target="_blank" rel="noopener"><img src="_images/starter/starter_activate_io.png" alt="Activate IO"></a>
 </div>
 </div>
 </li>
@@ -1334,7 +1340,7 @@ The intent in this tutorial is to create an input component that connects to a M
 </div>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/starter/starter_add_component.png" target="_blank" rel="noopener"><img src="_images/starter/starter_add_component.png" alt="Input configuration"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/starter/starter_add_component.png" target="_blank" rel="noopener"><img src="_images/starter/starter_add_component.png" alt="Input configuration"></a>
 </div>
 </div>
 <div class="olist arabic">
@@ -1372,7 +1378,7 @@ Closing the configuration panel on the right does <strong>not</strong> delete yo
 </div>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/starter/starter_input-config.png" target="_blank" rel="noopener"><img src="_images/starter/starter_input-config.png" alt="Input configuration"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/starter/starter_input-config.png" target="_blank" rel="noopener"><img src="_images/starter/starter_input-config.png" alt="Input configuration"></a>
 </div>
 </div>
 </li>
@@ -1430,7 +1436,7 @@ If you selected <strong>Activate IO</strong>, you can choose the component type.
 The input in this tutorial is a generic record. Enable the <strong>Generic</strong> option and click <strong>Save</strong>.<br></p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/starter/starter_processor-config.png" target="_blank" rel="noopener"><img src="_images/starter/starter_processor-config.png" alt="Processor configuration"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/starter/starter_processor-config.png" target="_blank" rel="noopener"><img src="_images/starter/starter_processor-config.png" alt="Processor configuration"></a>
 </div>
 </div>
 </li>
@@ -1468,7 +1474,7 @@ The intent in this tutorial is to create an output component that receives a rec
 </div>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/starter/starter_output-config.png" target="_blank" rel="noopener"><img src="_images/starter/starter_output-config.png" alt="Output configuration"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/starter/starter_output-config.png" target="_blank" rel="noopener"><img src="_images/starter/starter_output-config.png" alt="Output configuration"></a>
 </div>
 </div>
 <div class="olist arabic">
@@ -1545,7 +1551,7 @@ In this tutorial, the project was configured and three components of different t
 <p>Click <strong>Finish</strong> on the left panel. You are redirected to a page that summarizes the project. On the left panel, you can also see all the components that you added to the project.</p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/starter/starter_project-download.png" target="_blank" rel="noopener"><img src="_images/starter/starter_project-download.png" alt="Output configuration"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/starter/starter_project-download.png" target="_blank" rel="noopener"><img src="_images/starter/starter_project-download.png" alt="Output configuration"></a>
 </div>
 </div>
 </li>
@@ -1604,7 +1610,7 @@ Import the project to your favorite IDE to start the implementation.</p>
 <p>Enable the <strong>OpenAPI</strong> mode using the toggle in the header.<br></p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/starter_openapi_toggle.png" target="_blank" rel="noopener"><img src="_images/starter_openapi_toggle.png" alt="Open API toggle"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/starter_openapi_toggle.png" target="_blank" rel="noopener"><img src="_images/starter_openapi_toggle.png" alt="Open API toggle"></a>
 </div>
 </div>
 </li>
@@ -1618,7 +1624,7 @@ Import the project to your favorite IDE to start the implementation.</p>
 <p>Unselect the endpoints that you do not want to use in the future components. By default, all detected endpoints are selected.<br></p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/starter_openapi_json.png" target="_blank" rel="noopener"><img src="_images/starter_openapi_json.png" alt="Open API menu"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/starter_openapi_json.png" target="_blank" rel="noopener"><img src="_images/starter_openapi_json.png" alt="Open API menu"></a>
 </div>
 </div>
 </li>
@@ -2211,18 +2217,18 @@ public class HazelcastSource implements Serializable {
         this.dataset = configuration;
     }
 
-    @PostConstruct <i class="conum" data-value="3"></i><b>(3)</b>
+    @PostConstruct
     public void init() throws IOException {
         //Here we can init connections
     }
 
-    @Producer <i class="conum" data-value="4"></i><b>(4)</b>
+    @Producer
     public Record next() {
         // provide a record every time it is called. Returns null if there is no more data
         return null;
     }
 
-    @PreDestroy <i class="conum" data-value="5"></i><b>(5)</b>
+    @PreDestroy
     public void release() {
         // clean and release any resources
     }
@@ -5664,7 +5670,7 @@ in the <code>talend.maven.decrypter.m2.location</code> environment variable.
 <p>Click <strong>New Item</strong> to create a new build job.</p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/jenkins/1_jenkins_new_item.png" target="_blank" rel="noopener"><img src="_images/jenkins/1_jenkins_new_item.png" alt="Create a new job"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/jenkins/1_jenkins_new_item.png" target="_blank" rel="noopener"><img src="_images/jenkins/1_jenkins_new_item.png" alt="Create a new job"></a>
 </div>
 </div>
 </li>
@@ -5672,7 +5678,7 @@ in the <code>talend.maven.decrypter.m2.location</code> environment variable.
 <p>Enter an Item name (Job name) and choose the freestyle job. Then click OK.</p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/jenkins/2_jenkins_new_item.png" target="_blank" rel="noopener"><img src="_images/jenkins/2_jenkins_new_item.png" alt="Create a new job"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/jenkins/2_jenkins_new_item.png" target="_blank" rel="noopener"><img src="_images/jenkins/2_jenkins_new_item.png" alt="Create a new job"></a>
 </div>
 </div>
 </li>
@@ -5683,7 +5689,7 @@ in the <code>talend.maven.decrypter.m2.location</code> environment variable.
 <p>Specify the <code>master</code> branch as <strong>Branches to build</strong>.</p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/jenkins/4_jenkins_source_code.png" target="_blank" rel="noopener"><img src="_images/jenkins/4_jenkins_source_code.png" alt="Source Code Management"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/jenkins/4_jenkins_source_code.png" target="_blank" rel="noopener"><img src="_images/jenkins/4_jenkins_source_code.png" alt="Source Code Management"></a>
 </div>
 </div>
 </li>
@@ -5691,7 +5697,7 @@ in the <code>talend.maven.decrypter.m2.location</code> environment variable.
 <p>In the <strong>Build</strong> section, click <strong>Add build step</strong> and choose <strong>Invoke top-level Maven targets</strong>.</p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/jenkins/6_jenkins_build_cmd.png" target="_blank" rel="noopener"><img src="_images/jenkins/6_jenkins_build_cmd.png" alt="Build Section"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/jenkins/6_jenkins_build_cmd.png" target="_blank" rel="noopener"><img src="_images/jenkins/6_jenkins_build_cmd.png" alt="Build Section"></a>
 </div>
 </div>
 </li>
@@ -5699,7 +5705,7 @@ in the <code>talend.maven.decrypter.m2.location</code> environment variable.
 <p>Choose your Maven version and enter the Maven build command. In this case: <code>clean install</code>. Then, click <strong>Save</strong>.</p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/jenkins/6_jenkins_build_cmd_2.png" target="_blank" rel="noopener"><img src="_images/jenkins/6_jenkins_build_cmd_2.png" alt="Build Section"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/jenkins/6_jenkins_build_cmd_2.png" target="_blank" rel="noopener"><img src="_images/jenkins/6_jenkins_build_cmd_2.png" alt="Build Section"></a>
 </div>
 </div>
 <div class="paragraph">
@@ -5726,7 +5732,7 @@ You can configure the <strong>passthrough</strong> mode globally on your CI serv
 <p>Test the job by selecting <strong>Build now</strong>, and check that the job has built correctly.</p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/jenkins/7_jenkins_build_result.png" target="_blank" rel="noopener"><img src="_images/jenkins/7_jenkins_build_result.png" alt="Test the job"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/jenkins/7_jenkins_build_result.png" target="_blank" rel="noopener"><img src="_images/jenkins/7_jenkins_build_result.png" alt="Test the job"></a>
 </div>
 </div>
 </li>
@@ -6171,7 +6177,7 @@ if a configuration has been renamed between 2 component versions, you can get th
 
                 <ul>
                     <li>
-                      <a class="article-side-actions-link" target="_blank" href="https://github.com/Talend/component-runtime/edit/master/documentation/src/main/antora/modules/ROOT/pages/pdf-tutorials.adoc">
+                      <a class="article-side-actions-link" target="_blank" href="https://github.com/Talend/component-runtime/blob/component-runtime-1.38.16/documentation/src/main/antora/modules/ROOT/pages/pdf-tutorials.adoc">
                         <i class="fa fa-edit"></i> &nbsp; &nbsp; Suggest an edit
                       </a>
                     </li>

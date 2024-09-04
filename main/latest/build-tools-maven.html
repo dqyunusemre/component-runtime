@@ -6,16 +6,16 @@
     <title>Talend Component Kit Developer Reference Guide :: Building components with Maven</title>
     <link rel="canonical" href="https://talend.github.io/component-runtime/main/latest/build-tools-maven.html">
     <meta name="description" content="Use Maven or the Maven wrapper as build tool to develop components">
-    <meta name="keywords" content="mvn, mvnw, maven, maven-plugin, tool, build">
+    <meta name="keywords" content="mvn, mvnw, maven">
     <meta name="generator" content="Talend Component Kit Generator">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Building components with Maven :: Talend Component Kit Developer Reference Guide</title>
     <link rel="canonical" href="https://talend.github.io/component-runtime/main/latest/build-tools-maven.html">
     <meta name="description" content="Use Maven or the Maven wrapper as build tool to develop components">
-    <meta name="keywords" content="mvn, mvnw, maven, maven-plugin, tool, build">
+    <meta name="keywords" content="mvn, mvnw, maven">
     <meta name="generator" content="Antora 3.0.1">
-<meta name="date" content="2024-09-03T14:43:02.342Z" scheme="YYYY-MM-DDTHH:mm:ss.sssZ">
+<meta name="date" content="2024-09-04T00:49:46.791Z" scheme="YYYY-MM-DDTHH:mm:ss.sssZ">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha256-NuCn4IvuZXdBaFKJOAcsU2Q3ZpwbdFisd5dux4jkQ5w=" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/idea.min.css" integrity="sha256-rD61BPsgKHzJPyg7vpXaYOw6tMYuY2fz1p9033NYeM8=" crossorigin="anonymous" />
@@ -86,12 +86,15 @@
         <a class="navbar-single-link" href="https://talend.github.io/component-runtime/main/latest/index.html">Talend Component Kit</a>
         <div class="btn-group navbar-versions">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                1.65.0 (dev)
+                ${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}
               <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
                 <li class="navbar-item version">
-                    <a href="index.html">1.65.0</a>
+                    <a href="index.html">${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</a>
+                </li>
+                <li class="navbar-item version">
+                    <a href="../1.65.0/index.html">1.65.0</a>
                 </li>
                 <li class="navbar-item version">
                     <a href="../1.64.6/index.html">1.64.6</a>
@@ -434,7 +437,7 @@
     </nav>
 </header>
             <main class="main">
-              <div class="navigation-container grey-background hidden-xs col-sm-2" data-component="main" data-version="1.65.0">
+              <div class="navigation-container grey-background hidden-xs col-sm-2" data-component="main" data-version="${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}">
   <aside class="navigation" role="navigation">
     <div class="panels">
       <div class="input-group nav-filter-group">
@@ -668,6 +671,9 @@
   <li data-depth="2">
     <a class="menu-link" href="documentation-rest.html">Component server and HTTP API</a>
   </li>
+  <li data-depth="2">
+    <a class="menu-link" href="vault-proxy.html">Component Server Vault Proxy</a>
+  </li>
 </ul>
   </li>
   <li data-depth="1">
@@ -789,7 +795,7 @@ A Talend Component Kit plugin is available for each of the supported build tools
 For example, to compile the project and prepare for deploying your component, run <code>mvn clean install</code>. Using this command, the following goals are executed:</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><a class="image" href="_images/mvn_clean_install.png" target="_blank" rel="noopener"><img src="_images/mvn_clean_install.png" alt="Maven clean install"></a></span></p>
+<p><span class="image"><a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/mvn_clean_install.png" target="_blank" rel="noopener"><img src="_images/mvn_clean_install.png" alt="Maven clean install"></a></span></p>
 </div>
 <div class="paragraph">
 <p>The build is split into several phases. The different goals are executed in the order shown above. Talend Component Kit uses default goals from the Maven build lifecycle and adds additional goals to the building and packaging phases.</p>
@@ -1522,12 +1528,6 @@ This is an advanced feature designed for expert users. Use it with caution.
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">${project.packaging}</p></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">type</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the type: `connector' or server `extension'</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">talend.car.type</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">connector</p></td>
-</tr>
 </tbody>
 </table>
 <div class="paragraph">
@@ -1687,7 +1687,7 @@ Call <code>mvn talend-component:help -Ddetail=true -Dgoal=&lt;goal-name&gt;</cod
 
                 <ul>
                     <li>
-                      <a class="article-side-actions-link" target="_blank" href="https://github.com/Talend/component-runtime/edit/master/documentation/src/main/antora/modules/ROOT/pages/build-tools-maven.adoc">
+                      <a class="article-side-actions-link" target="_blank" href="https://github.com/Talend/component-runtime/blob/component-runtime-1.38.16/documentation/src/main/antora/modules/ROOT/pages/build-tools-maven.adoc">
                         <i class="fa fa-edit"></i> &nbsp; &nbsp; Suggest an edit
                       </a>
                     </li>

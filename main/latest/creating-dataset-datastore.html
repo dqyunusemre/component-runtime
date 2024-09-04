@@ -6,16 +6,16 @@
     <title>Talend Component Kit Developer Reference Guide :: Defining datasets and datastores</title>
     <link rel="canonical" href="https://talend.github.io/component-runtime/main/latest/creating-dataset-datastore.html">
     <meta name="description" content="Learn how to define datasets and datastores for input and output components.">
-    <meta name="keywords" content="datastore, dataset, validation, input, output, studio, studio-integration, connection">
+    <meta name="keywords" content="datastore, dataset, validation, input, output">
     <meta name="generator" content="Talend Component Kit Generator">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Defining datasets and datastores :: Talend Component Kit Developer Reference Guide</title>
     <link rel="canonical" href="https://talend.github.io/component-runtime/main/latest/creating-dataset-datastore.html">
     <meta name="description" content="Learn how to define datasets and datastores for input and output components.">
-    <meta name="keywords" content="datastore, dataset, validation, input, output, studio, studio-integration, connection">
+    <meta name="keywords" content="datastore, dataset, validation, input, output">
     <meta name="generator" content="Antora 3.0.1">
-<meta name="date" content="2024-09-03T14:43:02.393Z" scheme="YYYY-MM-DDTHH:mm:ss.sssZ">
+<meta name="date" content="2024-09-04T00:49:46.831Z" scheme="YYYY-MM-DDTHH:mm:ss.sssZ">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha256-NuCn4IvuZXdBaFKJOAcsU2Q3ZpwbdFisd5dux4jkQ5w=" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/idea.min.css" integrity="sha256-rD61BPsgKHzJPyg7vpXaYOw6tMYuY2fz1p9033NYeM8=" crossorigin="anonymous" />
@@ -86,12 +86,15 @@
         <a class="navbar-single-link" href="https://talend.github.io/component-runtime/main/latest/index.html">Talend Component Kit</a>
         <div class="btn-group navbar-versions">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                1.65.0 (dev)
+                ${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}
               <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
                 <li class="navbar-item version">
-                    <a href="index.html">1.65.0</a>
+                    <a href="index.html">${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</a>
+                </li>
+                <li class="navbar-item version">
+                    <a href="../1.65.0/index.html">1.65.0</a>
                 </li>
                 <li class="navbar-item version">
                     <a href="../1.64.6/index.html">1.64.6</a>
@@ -434,7 +437,7 @@
     </nav>
 </header>
             <main class="main">
-              <div class="navigation-container grey-background hidden-xs col-sm-2" data-component="main" data-version="1.65.0">
+              <div class="navigation-container grey-background hidden-xs col-sm-2" data-component="main" data-version="${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}">
   <aside class="navigation" role="navigation">
     <div class="panels">
       <div class="input-group nav-filter-group">
@@ -668,6 +671,9 @@
   <li data-depth="2">
     <a class="menu-link" href="documentation-rest.html">Component server and HTTP API</a>
   </li>
+  <li data-depth="2">
+    <a class="menu-link" href="vault-proxy.html">Component Server Vault Proxy</a>
+  </li>
 </ul>
   </li>
   <li data-depth="1">
@@ -760,7 +766,7 @@
 </div>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/datastore_and_dataset_validation.png" target="_blank" rel="noopener"><img src="_images/datastore_and_dataset_validation.png" alt="Dataset validation"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/datastore_and_dataset_validation.png" target="_blank" rel="noopener"><img src="_images/datastore_and_dataset_validation.png" alt="Dataset validation"></a>
 </div>
 </div>
 <div class="admonitionblock important">
@@ -834,7 +840,7 @@ Make sure to modelize the data your components are designed to handle before def
 </div>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/datastore_view_intellij.png" target="_blank" rel="noopener"><img src="_images/datastore_view_intellij.png" alt="Datastore view"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/datastore_view_intellij.png" target="_blank" rel="noopener"><img src="_images/datastore_view_intellij.png" alt="Datastore view"></a>
 </div>
 </div>
 <div class="paragraph">
@@ -950,7 +956,7 @@ Make sure to modelize the data your components are designed to handle before def
 </div>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/dataset_view_intellij.png" target="_blank" rel="noopener"><img src="_images/dataset_view_intellij.png" alt="Dataset view"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/dataset_view_intellij.png" target="_blank" rel="noopener"><img src="_images/dataset_view_intellij.png" alt="Dataset view"></a>
 </div>
 </div>
 <div class="paragraph">
@@ -1028,7 +1034,7 @@ ComponentFamily.datastore.DatastoreA._displayName=Datastore A</code></pre>
 </div>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/studio_create_dataset.png" target="_blank" rel="noopener"><img src="_images/studio_create_dataset.png" alt="Dataset in Studio"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/studio_create_dataset.png" target="_blank" rel="noopener"><img src="_images/studio_create_dataset.png" alt="Dataset in Studio"></a>
 </div>
 </div>
 <div class="paragraph">
@@ -1036,7 +1042,7 @@ ComponentFamily.datastore.DatastoreA._displayName=Datastore A</code></pre>
 </div>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/studio_select_predefined_dataset.png" target="_blank" rel="noopener"><img src="_images/studio_select_predefined_dataset.png" alt="Dataset in Component"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/studio_select_predefined_dataset.png" target="_blank" rel="noopener"><img src="_images/studio_select_predefined_dataset.png" alt="Dataset in Component"></a>
 </div>
 </div>
 </div>
@@ -1211,7 +1217,7 @@ The component family associated with a configuration type (datastore/dataset) is
 
                 <ul>
                     <li>
-                      <a class="article-side-actions-link" target="_blank" href="https://github.com/Talend/component-runtime/edit/master/documentation/src/main/antora/modules/ROOT/pages/creating-dataset-datastore.adoc">
+                      <a class="article-side-actions-link" target="_blank" href="https://github.com/Talend/component-runtime/blob/component-runtime-1.38.16/documentation/src/main/antora/modules/ROOT/pages/creating-dataset-datastore.adoc">
                         <i class="fa fa-edit"></i> &nbsp; &nbsp; Suggest an edit
                       </a>
                     </li>

@@ -15,7 +15,7 @@
     <meta name="description" content="Learn how to define the basic configuration of a component using the Talend Component Kit Starter to start your project">
     <meta name="keywords" content="tutorial, example, starter">
     <meta name="generator" content="Antora 3.0.1">
-<meta name="date" content="2024-09-03T14:43:02.531Z" scheme="YYYY-MM-DDTHH:mm:ss.sssZ">
+<meta name="date" content="2024-09-04T00:49:46.973Z" scheme="YYYY-MM-DDTHH:mm:ss.sssZ">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha256-NuCn4IvuZXdBaFKJOAcsU2Q3ZpwbdFisd5dux4jkQ5w=" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/idea.min.css" integrity="sha256-rD61BPsgKHzJPyg7vpXaYOw6tMYuY2fz1p9033NYeM8=" crossorigin="anonymous" />
@@ -86,12 +86,15 @@
         <a class="navbar-single-link" href="https://talend.github.io/component-runtime/main/latest/index.html">Talend Component Kit</a>
         <div class="btn-group navbar-versions">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                1.65.0 (dev)
+                ${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}
               <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
                 <li class="navbar-item version">
-                    <a href="index.html">1.65.0</a>
+                    <a href="index.html">${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</a>
+                </li>
+                <li class="navbar-item version">
+                    <a href="../1.65.0/index.html">1.65.0</a>
                 </li>
                 <li class="navbar-item version">
                     <a href="../1.64.6/index.html">1.64.6</a>
@@ -434,7 +437,7 @@
     </nav>
 </header>
             <main class="main">
-              <div class="navigation-container grey-background hidden-xs col-sm-2" data-component="main" data-version="1.65.0">
+              <div class="navigation-container grey-background hidden-xs col-sm-2" data-component="main" data-version="${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}">
   <aside class="navigation" role="navigation">
     <div class="panels">
       <div class="input-group nav-filter-group">
@@ -668,6 +671,9 @@
   <li data-depth="2">
     <a class="menu-link" href="documentation-rest.html">Component server and HTTP API</a>
   </li>
+  <li data-depth="2">
+    <a class="menu-link" href="vault-proxy.html">Component Server Vault Proxy</a>
+  </li>
 </ul>
   </li>
   <li data-depth="1">
@@ -786,7 +792,7 @@ When defining a project using the Starter, do not refresh the page to avoid losi
 <p>Add any facet you need. For example, add the <strong>Talend Component Kit Testing</strong> facet to your project to automatically generate unit tests for the components created in the project.<br></p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/starter/starter_test_facet.png" target="_blank" rel="noopener"><img src="_images/starter/starter_test_facet.png" alt="Test facet"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/starter/starter_test_facet.png" target="_blank" rel="noopener"><img src="_images/starter/starter_test_facet.png" alt="Test facet"></a>
 </div>
 </div>
 </li>
@@ -827,7 +833,7 @@ Input and Output components without dataset (itself containing a datastore) will
 <p>Components added to the project using <strong>Add A Component</strong> can now be processors, input or output components.<br></p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/starter/starter_activate_io.png" target="_blank" rel="noopener"><img src="_images/starter/starter_activate_io.png" alt="Activate IO"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/starter/starter_activate_io.png" target="_blank" rel="noopener"><img src="_images/starter/starter_activate_io.png" alt="Activate IO"></a>
 </div>
 </div>
 </li>
@@ -938,7 +944,7 @@ The intent in this tutorial is to create an input component that connects to a M
 </div>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/starter/starter_add_component.png" target="_blank" rel="noopener"><img src="_images/starter/starter_add_component.png" alt="Input configuration"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/starter/starter_add_component.png" target="_blank" rel="noopener"><img src="_images/starter/starter_add_component.png" alt="Input configuration"></a>
 </div>
 </div>
 <div class="olist arabic">
@@ -976,7 +982,7 @@ Closing the configuration panel on the right does <strong>not</strong> delete yo
 </div>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/starter/starter_input-config.png" target="_blank" rel="noopener"><img src="_images/starter/starter_input-config.png" alt="Input configuration"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/starter/starter_input-config.png" target="_blank" rel="noopener"><img src="_images/starter/starter_input-config.png" alt="Input configuration"></a>
 </div>
 </div>
 </li>
@@ -1036,7 +1042,7 @@ If you selected <strong>Activate IO</strong>, you can choose the component type.
 The input in this tutorial is a generic record. Enable the <strong>Generic</strong> option and click <strong>Save</strong>.<br></p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/starter/starter_processor-config.png" target="_blank" rel="noopener"><img src="_images/starter/starter_processor-config.png" alt="Processor configuration"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/starter/starter_processor-config.png" target="_blank" rel="noopener"><img src="_images/starter/starter_processor-config.png" alt="Processor configuration"></a>
 </div>
 </div>
 </li>
@@ -1076,7 +1082,7 @@ The intent in this tutorial is to create an output component that receives a rec
 </div>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/starter/starter_output-config.png" target="_blank" rel="noopener"><img src="_images/starter/starter_output-config.png" alt="Output configuration"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/starter/starter_output-config.png" target="_blank" rel="noopener"><img src="_images/starter/starter_output-config.png" alt="Output configuration"></a>
 </div>
 </div>
 <div class="olist arabic">
@@ -1155,7 +1161,7 @@ In this tutorial, the project was configured and three components of different t
 <p>Click <strong>Finish</strong> on the left panel. You are redirected to a page that summarizes the project. On the left panel, you can also see all the components that you added to the project.</p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/starter/starter_project-download.png" target="_blank" rel="noopener"><img src="_images/starter/starter_project-download.png" alt="Output configuration"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/starter/starter_project-download.png" target="_blank" rel="noopener"><img src="_images/starter/starter_project-download.png" alt="Output configuration"></a>
 </div>
 </div>
 </li>
@@ -1218,7 +1224,7 @@ Import the project to your favorite IDE to start the implementation.</p>
 <p>Enable the <strong>OpenAPI</strong> mode using the toggle in the header.<br></p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/starter_openapi_toggle.png" target="_blank" rel="noopener"><img src="_images/starter_openapi_toggle.png" alt="Open API toggle"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/starter_openapi_toggle.png" target="_blank" rel="noopener"><img src="_images/starter_openapi_toggle.png" alt="Open API toggle"></a>
 </div>
 </div>
 </li>
@@ -1232,7 +1238,7 @@ Import the project to your favorite IDE to start the implementation.</p>
 <p>Unselect the endpoints that you do not want to use in the future components. By default, all detected endpoints are selected.<br></p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="_images/starter_openapi_json.png" target="_blank" rel="noopener"><img src="_images/starter_openapi_json.png" alt="Open API menu"></a>
+<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/starter_openapi_json.png" target="_blank" rel="noopener"><img src="_images/starter_openapi_json.png" alt="Open API menu"></a>
 </div>
 </div>
 </li>
@@ -1303,7 +1309,7 @@ Import the project to your favorite IDE to start the implementation.</p>
 
                 <ul>
                     <li>
-                      <a class="article-side-actions-link" target="_blank" href="https://github.com/Talend/component-runtime/edit/master/documentation/src/main/antora/modules/ROOT/pages/tutorial-generate-project-using-starter.adoc">
+                      <a class="article-side-actions-link" target="_blank" href="https://github.com/Talend/component-runtime/blob/component-runtime-1.38.16/documentation/src/main/antora/modules/ROOT/pages/tutorial-generate-project-using-starter.adoc">
                         <i class="fa fa-edit"></i> &nbsp; &nbsp; Suggest an edit
                       </a>
                     </li>
