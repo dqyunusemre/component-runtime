@@ -6,16 +6,16 @@
     <title>Talend Component Kit Developer Reference Guide :: Generating a project</title>
     <link rel="canonical" href="https://talend.github.io/component-runtime/main/latest/pdf-generating-project.html">
     <meta name="description" content="Get an overview of the first step to create a new component, which consists in building a project using the Component Kit Starter or the Component Kit plugin for IntelliJ">
-    <meta name="keywords" content="starter, overview, component project, intelliJ">
+    <meta name="keywords" content="starter, starter, overview, component project, intelliJ, intellij">
     <meta name="generator" content="Talend Component Kit Generator">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Generating a project :: Talend Component Kit Developer Reference Guide</title>
     <link rel="canonical" href="https://talend.github.io/component-runtime/main/latest/pdf-generating-project.html">
     <meta name="description" content="Get an overview of the first step to create a new component, which consists in building a project using the Component Kit Starter or the Component Kit plugin for IntelliJ">
-    <meta name="keywords" content="starter, overview, component project, intelliJ">
+    <meta name="keywords" content="starter, starter, overview, component project, intelliJ, intellij">
     <meta name="generator" content="Antora 3.0.1">
-<meta name="date" content="2024-09-05T00:48:35.854Z" scheme="YYYY-MM-DDTHH:mm:ss.sssZ">
+<meta name="date" content="2024-09-09T08:23:35.669Z" scheme="YYYY-MM-DDTHH:mm:ss.sssZ">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha256-NuCn4IvuZXdBaFKJOAcsU2Q3ZpwbdFisd5dux4jkQ5w=" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/idea.min.css" integrity="sha256-rD61BPsgKHzJPyg7vpXaYOw6tMYuY2fz1p9033NYeM8=" crossorigin="anonymous" />
@@ -86,15 +86,12 @@
         <a class="navbar-single-link" href="https://talend.github.io/component-runtime/main/latest/index.html">Talend Component Kit</a>
         <div class="btn-group navbar-versions">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                ${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}
+                1.65.0 (dev)
               <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
                 <li class="navbar-item version">
-                    <a href="index.html">${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</a>
-                </li>
-                <li class="navbar-item version">
-                    <a href="../1.65.0/index.html">1.65.0</a>
+                    <a href="index.html">1.65.0</a>
                 </li>
                 <li class="navbar-item version">
                     <a href="../1.64.7/index.html">1.64.7</a>
@@ -227,6 +224,9 @@
                 </li>
                 <li class="navbar-item version">
                     <a href="../1.39.3/index.html">1.39.3</a>
+                </li>
+                <li class="navbar-item version">
+                    <a href="../1.38.16/index.html">1.38.16</a>
                 </li>
                 <li class="navbar-item version">
                     <a href="../1.38.15/index.html">1.38.15</a>
@@ -440,7 +440,7 @@
     </nav>
 </header>
             <main class="main">
-              <div class="navigation-container grey-background hidden-xs col-sm-2" data-component="main" data-version="${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}">
+              <div class="navigation-container grey-background hidden-xs col-sm-2" data-component="main" data-version="1.65.0">
   <aside class="navigation" role="navigation">
     <div class="panels">
       <div class="input-group nav-filter-group">
@@ -674,9 +674,6 @@
   <li data-depth="2">
     <a class="menu-link" href="documentation-rest.html">Component server and HTTP API</a>
   </li>
-  <li data-depth="2">
-    <a class="menu-link" href="vault-proxy.html">Component Server Vault Proxy</a>
-  </li>
 </ul>
   </li>
   <li data-depth="1">
@@ -821,7 +818,7 @@ When defining a project using the Starter, do not refresh the page to avoid losi
 <p>Add any facet you need. For example, add the <strong>Talend Component Kit Testing</strong> facet to your project to automatically generate unit tests for the components created in the project.<br></p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/starter/starter_test_facet.png" target="_blank" rel="noopener"><img src="_images/starter/starter_test_facet.png" alt="Test facet"></a>
+<a class="image" href="_images/starter/starter_test_facet.png" target="_blank" rel="noopener"><img src="_images/starter/starter_test_facet.png" alt="Test facet"></a>
 </div>
 </div>
 </li>
@@ -862,7 +859,7 @@ Input and Output components without dataset (itself containing a datastore) will
 <p>Components added to the project using <strong>Add A Component</strong> can now be processors, input or output components.<br></p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/starter/starter_activate_io.png" target="_blank" rel="noopener"><img src="_images/starter/starter_activate_io.png" alt="Activate IO"></a>
+<a class="image" href="_images/starter/starter_activate_io.png" target="_blank" rel="noopener"><img src="_images/starter/starter_activate_io.png" alt="Activate IO"></a>
 </div>
 </div>
 </li>
@@ -967,7 +964,7 @@ The intent in this tutorial is to create an input component that connects to a M
 </div>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/starter/starter_add_component.png" target="_blank" rel="noopener"><img src="_images/starter/starter_add_component.png" alt="Input configuration"></a>
+<a class="image" href="_images/starter/starter_add_component.png" target="_blank" rel="noopener"><img src="_images/starter/starter_add_component.png" alt="Input configuration"></a>
 </div>
 </div>
 <div class="olist arabic">
@@ -1005,7 +1002,7 @@ Closing the configuration panel on the right does <strong>not</strong> delete yo
 </div>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/starter/starter_input-config.png" target="_blank" rel="noopener"><img src="_images/starter/starter_input-config.png" alt="Input configuration"></a>
+<a class="image" href="_images/starter/starter_input-config.png" target="_blank" rel="noopener"><img src="_images/starter/starter_input-config.png" alt="Input configuration"></a>
 </div>
 </div>
 </li>
@@ -1063,7 +1060,7 @@ If you selected <strong>Activate IO</strong>, you can choose the component type.
 The input in this tutorial is a generic record. Enable the <strong>Generic</strong> option and click <strong>Save</strong>.<br></p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/starter/starter_processor-config.png" target="_blank" rel="noopener"><img src="_images/starter/starter_processor-config.png" alt="Processor configuration"></a>
+<a class="image" href="_images/starter/starter_processor-config.png" target="_blank" rel="noopener"><img src="_images/starter/starter_processor-config.png" alt="Processor configuration"></a>
 </div>
 </div>
 </li>
@@ -1101,7 +1098,7 @@ The intent in this tutorial is to create an output component that receives a rec
 </div>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/starter/starter_output-config.png" target="_blank" rel="noopener"><img src="_images/starter/starter_output-config.png" alt="Output configuration"></a>
+<a class="image" href="_images/starter/starter_output-config.png" target="_blank" rel="noopener"><img src="_images/starter/starter_output-config.png" alt="Output configuration"></a>
 </div>
 </div>
 <div class="olist arabic">
@@ -1178,7 +1175,7 @@ In this tutorial, the project was configured and three components of different t
 <p>Click <strong>Finish</strong> on the left panel. You are redirected to a page that summarizes the project. On the left panel, you can also see all the components that you added to the project.</p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/starter/starter_project-download.png" target="_blank" rel="noopener"><img src="_images/starter/starter_project-download.png" alt="Output configuration"></a>
+<a class="image" href="_images/starter/starter_project-download.png" target="_blank" rel="noopener"><img src="_images/starter/starter_project-download.png" alt="Output configuration"></a>
 </div>
 </div>
 </li>
@@ -1237,7 +1234,7 @@ Import the project to your favorite IDE to start the implementation.</p>
 <p>Enable the <strong>OpenAPI</strong> mode using the toggle in the header.<br></p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/starter_openapi_toggle.png" target="_blank" rel="noopener"><img src="_images/starter_openapi_toggle.png" alt="Open API toggle"></a>
+<a class="image" href="_images/starter_openapi_toggle.png" target="_blank" rel="noopener"><img src="_images/starter_openapi_toggle.png" alt="Open API toggle"></a>
 </div>
 </div>
 </li>
@@ -1251,7 +1248,7 @@ Import the project to your favorite IDE to start the implementation.</p>
 <p>Unselect the endpoints that you do not want to use in the future components. By default, all detected endpoints are selected.<br></p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/starter_openapi_json.png" target="_blank" rel="noopener"><img src="_images/starter_openapi_json.png" alt="Open API menu"></a>
+<a class="image" href="_images/starter_openapi_json.png" target="_blank" rel="noopener"><img src="_images/starter_openapi_json.png" alt="Open API menu"></a>
 </div>
 </div>
 </li>
@@ -1328,7 +1325,7 @@ Import the project to your favorite IDE to start the implementation.</p>
 <p>In the <strong>New Project</strong> wizard, choose <strong>Talend Component</strong> and click <strong>Next</strong>.<br></p>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/intellij/plugin/new-project_1.png" target="_blank" rel="noopener"><img src="_images/intellij/plugin/new-project_1.png" alt="New Talend Project"></a>
+<a class="image" href="_images/intellij/plugin/new-project_1.png" target="_blank" rel="noopener"><img src="_images/intellij/plugin/new-project_1.png" alt="New Talend Project"></a>
 </div>
 </div>
 <div class="paragraph">
@@ -1389,7 +1386,7 @@ For more information about the Talend Component Kit starter, check <a href="tuto
 
                 <ul>
                     <li>
-                      <a class="article-side-actions-link" target="_blank" href="https://github.com/Talend/component-runtime/blob/component-runtime-1.38.16/documentation/src/main/antora/modules/ROOT/pages/pdf-generating-project.adoc">
+                      <a class="article-side-actions-link" target="_blank" href="https://github.com/Talend/component-runtime/edit/master/documentation/src/main/antora/modules/ROOT/pages/pdf-generating-project.adoc">
                         <i class="fa fa-edit"></i> &nbsp; &nbsp; Suggest an edit
                       </a>
                     </li>

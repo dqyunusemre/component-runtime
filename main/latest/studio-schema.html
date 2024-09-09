@@ -6,16 +6,16 @@
     <title>Talend Component Kit Developer Reference Guide :: Studio schema</title>
     <link rel="canonical" href="https://talend.github.io/component-runtime/main/latest/studio-schema.html">
     <meta name="description" content="How to access studio&#x27;s schema in your component.">
-    <meta name="keywords" content="studio, schema, metadata, dynamic, columns, output, sink, connector">
+    <meta name="keywords" content="studio, studio-integration, schema, metadata, dynamic, columns, output, sink, connector, record-schema, guess, discover, guess-schema, discover-schema">
     <meta name="generator" content="Talend Component Kit Generator">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Studio schema :: Talend Component Kit Developer Reference Guide</title>
     <link rel="canonical" href="https://talend.github.io/component-runtime/main/latest/studio-schema.html">
     <meta name="description" content="How to access studio's schema in your component.">
-    <meta name="keywords" content="studio, schema, metadata, dynamic, columns, output, sink, connector">
+    <meta name="keywords" content="studio, studio-integration, schema, metadata, dynamic, columns, output, sink, connector, record-schema, guess, discover, guess-schema, discover-schema">
     <meta name="generator" content="Antora 3.0.1">
-<meta name="date" content="2024-09-05T00:48:35.905Z" scheme="YYYY-MM-DDTHH:mm:ss.sssZ">
+<meta name="date" content="2024-09-09T08:23:35.724Z" scheme="YYYY-MM-DDTHH:mm:ss.sssZ">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha256-NuCn4IvuZXdBaFKJOAcsU2Q3ZpwbdFisd5dux4jkQ5w=" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/idea.min.css" integrity="sha256-rD61BPsgKHzJPyg7vpXaYOw6tMYuY2fz1p9033NYeM8=" crossorigin="anonymous" />
@@ -86,15 +86,12 @@
         <a class="navbar-single-link" href="https://talend.github.io/component-runtime/main/latest/index.html">Talend Component Kit</a>
         <div class="btn-group navbar-versions">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                ${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}
+                1.65.0 (dev)
               <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
                 <li class="navbar-item version">
-                    <a href="index.html">${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</a>
-                </li>
-                <li class="navbar-item version">
-                    <a href="../1.65.0/index.html">1.65.0</a>
+                    <a href="index.html">1.65.0</a>
                 </li>
                 <li class="navbar-item version">
                     <a href="../1.64.7/index.html">1.64.7</a>
@@ -227,6 +224,9 @@
                 </li>
                 <li class="navbar-item version">
                     <a href="../1.39.3/index.html">1.39.3</a>
+                </li>
+                <li class="navbar-item version">
+                    <a href="../1.38.16/index.html">1.38.16</a>
                 </li>
                 <li class="navbar-item version">
                     <a href="../1.38.15/index.html">1.38.15</a>
@@ -440,7 +440,7 @@
     </nav>
 </header>
             <main class="main">
-              <div class="navigation-container grey-background hidden-xs col-sm-2" data-component="main" data-version="${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}">
+              <div class="navigation-container grey-background hidden-xs col-sm-2" data-component="main" data-version="1.65.0">
   <aside class="navigation" role="navigation">
     <div class="panels">
       <div class="input-group nav-filter-group">
@@ -674,9 +674,6 @@
   <li data-depth="2">
     <a class="menu-link" href="documentation-rest.html">Component server and HTTP API</a>
   </li>
-  <li data-depth="2">
-    <a class="menu-link" href="vault-proxy.html">Component Server Vault Proxy</a>
-  </li>
 </ul>
   </li>
   <li data-depth="1">
@@ -777,7 +774,7 @@ Dynamic column is available with Enterprise versions of Talend Studio only.
 </div>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/studio_schema.png" target="_blank" rel="noopener"><img src="_images/studio_schema.png" alt="Job run"></a>
+<a class="image" href="_images/studio_schema.png" target="_blank" rel="noopener"><img src="_images/studio_schema.png" alt="Job run"></a>
 </div>
 </div>
 <div class="paragraph">
@@ -976,7 +973,7 @@ Available since 1.43.x release
 </table>
 </div>
 <div class="paragraph">
-<p>As Talend Component Kit <a href="/component-runtime/apidocs/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/api/org/talend/sdk/component/api/record/Schema.Type.html" target="_blank" rel="noopener">Schema</a>'s types aren&#8217;t matching all Studio types, we wrap those types in wider
+<p>As Talend Component Kit <a href="/component-runtime/apidocs/1.65.0/api/org/talend/sdk/component/api/record/Schema.Type.html" target="_blank" rel="noopener">Schema</a>'s types aren&#8217;t matching all Studio types, we wrap those types in wider
 types (like <code>Character</code> or <code>char</code> wrapped into <code>String</code>, <code>Short</code> to <code>Integer</code>, and so on&#8230;&#8203;).</p>
 </div>
 <div class="paragraph">
@@ -1019,6 +1016,188 @@ This usage of properties is cumbersome but may fix some potential issues for now
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_discovering_schema_guess_schema"><a class="anchor" href="#_discovering_schema_guess_schema"></a>Discovering schema (Guess schema)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are two annotations allowing to discover a component&#8217;s schema:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>@DiscoverSchema</code> (only for <em>input</em> components)</p>
+</li>
+<li>
+<p><code>@DiscoverSchemaExtended</code> (all components)</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_using_the_discoverschema_annotation"><a class="anchor" href="#_using_the_discoverschema_annotation"></a>Using the <code>@DiscoverSchema</code> annotation</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Service
+public class UiServices {
+
+    @DiscoverSchema("MyDataSet")
+    public Schema guessSchema(@Option final MyDataSet dataset) {
+       // some code
+       retrurn factory.newSchemaBuilder(Schema.Type.RECORD)
+                .withEntry(factory.newEntryBuilder()
+                        .withName("DataSetor")
+                        .withType(Schema.Type.STRING)
+                        .withNullable(true)
+                        .build())
+       // building some entries
+                .withEntry(factory.newEntryBuilder()
+                        .withName("effective_date")
+                        .withType(Schema.Type.DATETIME)
+                        .withNullable(true)
+                        .withComment("Effective date of purchase")
+                        .build())
+                .build();
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_the_discoverschemaextended_annotation"><a class="anchor" href="#_using_the_discoverschemaextended_annotation"></a>Using the <code>@DiscoverSchemaExtended</code> annotation</h3>
+<div class="paragraph">
+<p>Parameters can be an incoming schema and/or an outgoing branch, and an optional parameter: configuration. None of them is "Must have".</p>
+</div>
+<div class="paragraph">
+<p>Prototype:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">/**
+ *
+ * @param incomingSchema the schema of the input flow
+ * @param conf the configuration of the processor (not a @Dataset)
+ * @param branch the name of the output flow for which the the computed schema is expected (FLOW, MAIN, REJECT, etc.)
+ * @return
+ */
+@DiscoverSchemaExtended("full")
+public Schema guessMethodName(final Schema incomingSchema, final @Option("configuration") ConfigClass myConfig, final String branch) {...}
+
+@DiscoverSchemaExtended("incoming_schema")
+public Schema guessMethodName(final Schema incomingSchema, final @Option("configuration") ConfigClass myConfig) {...}
+
+@DiscoverSchemaExtended("branch")
+public Schema guessMethodName(final @Option("configuration") ConfigClass myConfig, final String branch) {...}
+
+@DiscoverSchemaExtended("minimal")
+public Schema guessMethodName(final @Option("configuration") ConfigClass myConfig) {...}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As you may pass other parameters to method, ensure to use the above naming : <em>incomingSchema</em> for the schema and <em>branch</em> for the outgoing branch.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The schema element must comply with the following requirements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>It has to be a string not a sub json object</p>
+</li>
+<li>
+<p>The json has to be flat</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">    @DiscoverSchemaExtended("MyProcessorSchema")
+    public Schema discoverProcessorSchema(final Schema incomingSchema, @Option final MyProcessorConfiguration configuration, final String branch) {
+        final Schema.Builder outgoingSchema = factory.newSchemaBuilder(incomingSchema);
+        outgoingSchema.withEntry(factory.newEntryBuilder()
+                .withName("RejectorProcessorSchema")
+                .withType(Type.STRING)
+                .build());
+        outgoingSchema.withEntry(factory.newEntryBuilder()
+                .withName(branch)
+                .withType(Type.FLOAT)
+                .withComment(infos)
+                .withProp(org.talend.sdk.component.api.record.SchemaProperty.SIZE, "10")
+                .withProp(org.talend.sdk.component.api.record.SchemaProperty.SCALE, "3")
+                .build());
+        if ("REJECT".equals(branch.toUpperCase())) {
+            outgoingSchema.withEntry(factory.newEntryBuilder()
+                    .withName("ERROR_MESSAGE")
+                    .withType(Type.STRING)
+                    .withDefaultValue(code)
+                    .build());
+        }
+        return outgoingSchema.build();
+    }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_guess_schema_action_selection"><a class="anchor" href="#_guess_schema_action_selection"></a>Guess schema action selection</h3>
+<div class="sect3">
+<h4 id="_for_inputs"><a class="anchor" href="#_for_inputs"></a>For inputs</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Try to find an action in declared Service class</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>search an action of type <code>@DiscoverSchema</code> named like the input dataset.</p>
+</li>
+<li>
+<p>search an action of type <code>@DiscoverSchemaExtended</code> named like the input dataset.</p>
+</li>
+<li>
+<p>search an action of type <code>@DiscoverSchema</code>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Execute a fake job with component to retrieve output schema.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_for_processors"><a class="anchor" href="#_for_processors"></a>For processors</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Try to find an action in declared Service class</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>search an action of type <code>@DiscoverSchemaExtended</code> named like the input dataset.</p>
+</li>
+<li>
+<p>search an action of type <code>@DiscoverSchemaExtended</code>.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="sect1 relatedlinks">
 <h2 id="_related_articles"><a class="anchor" href="#_related_articles"></a>Related articles</h2>
 <div class="sectionbody">
@@ -1042,7 +1221,7 @@ This usage of properties is cumbersome but may fix some potential issues for now
 
                 <ul>
                     <li>
-                      <a class="article-side-actions-link" target="_blank" href="https://github.com/Talend/component-runtime/blob/component-runtime-1.38.16/documentation/src/main/antora/modules/ROOT/pages/studio-schema.adoc">
+                      <a class="article-side-actions-link" target="_blank" href="https://github.com/Talend/component-runtime/edit/master/documentation/src/main/antora/modules/ROOT/pages/studio-schema.adoc">
                         <i class="fa fa-edit"></i> &nbsp; &nbsp; Suggest an edit
                       </a>
                     </li>

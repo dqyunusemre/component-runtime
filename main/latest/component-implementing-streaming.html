@@ -15,7 +15,7 @@
     <meta name="description" content="How to make your input component ready for a continuous flow of data.">
     <meta name="keywords" content="stream, infinite, partition mapper, input">
     <meta name="generator" content="Antora 3.0.1">
-<meta name="date" content="2024-09-05T00:48:35.774Z" scheme="YYYY-MM-DDTHH:mm:ss.sssZ">
+<meta name="date" content="2024-09-09T08:23:35.582Z" scheme="YYYY-MM-DDTHH:mm:ss.sssZ">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha256-NuCn4IvuZXdBaFKJOAcsU2Q3ZpwbdFisd5dux4jkQ5w=" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/idea.min.css" integrity="sha256-rD61BPsgKHzJPyg7vpXaYOw6tMYuY2fz1p9033NYeM8=" crossorigin="anonymous" />
@@ -86,15 +86,12 @@
         <a class="navbar-single-link" href="https://talend.github.io/component-runtime/main/latest/index.html">Talend Component Kit</a>
         <div class="btn-group navbar-versions">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                ${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}
+                1.65.0 (dev)
               <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
                 <li class="navbar-item version">
-                    <a href="index.html">${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</a>
-                </li>
-                <li class="navbar-item version">
-                    <a href="../1.65.0/index.html">1.65.0</a>
+                    <a href="index.html">1.65.0</a>
                 </li>
                 <li class="navbar-item version">
                     <a href="../1.64.7/index.html">1.64.7</a>
@@ -227,6 +224,9 @@
                 </li>
                 <li class="navbar-item version">
                     <a href="../1.39.3/index.html">1.39.3</a>
+                </li>
+                <li class="navbar-item version">
+                    <a href="../1.38.16/index.html">1.38.16</a>
                 </li>
                 <li class="navbar-item version">
                     <a href="../1.38.15/index.html">1.38.15</a>
@@ -440,7 +440,7 @@
     </nav>
 </header>
             <main class="main">
-              <div class="navigation-container grey-background hidden-xs col-sm-2" data-component="main" data-version="${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}">
+              <div class="navigation-container grey-background hidden-xs col-sm-2" data-component="main" data-version="1.65.0">
   <aside class="navigation" role="navigation">
     <div class="panels">
       <div class="input-group nav-filter-group">
@@ -674,9 +674,6 @@
   <li data-depth="2">
     <a class="menu-link" href="documentation-rest.html">Component server and HTTP API</a>
   </li>
-  <li data-depth="2">
-    <a class="menu-link" href="vault-proxy.html">Component Server Vault Proxy</a>
-  </li>
 </ul>
   </li>
   <li data-depth="1">
@@ -786,7 +783,173 @@ This default configuration implements a constant pause duration of 500 ms betwee
 </div>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/starter/starter_enabling_streaming.png" target="_blank" rel="noopener"><img src="_images/starter/starter_enabling_streaming.png" alt="Stream Toggle"></a>
+<a class="image" href="_images/starter/starter_enabling_streaming.png" target="_blank" rel="noopener"><img src="_images/starter/starter_enabling_streaming.png" alt="Stream Toggle"></a>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_enabling_limitations_stop_conditions_for_streaming_components"><a class="anchor" href="#_enabling_limitations_stop_conditions_for_streaming_components"></a>Enabling limitations (stop conditions) for Streaming components</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Without any configuration, streaming components have an infinite lifecycle and will never stop.
+Sometimes, you may need to stop component after a certain amount of records read or time elapsed.</p>
+</div>
+<div class="paragraph">
+<p>You can add configuration that helps you to stop the data reading in your input component when it reaches required limitations. To enable it you need to set <code>true</code> in <code>PartitionMapper#stoppable</code>. An important condition is that <code>PartitionMapper#infinite</code> should also be <code>true</code>.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s a sample code:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@PartitionMapper(name = "Input",
+                 infinite = true, <i class="conum" data-value="1"></i><b>(1)</b>
+                 stoppable = true) <i class="conum" data-value="2"></i><b>(2)</b>
+public class YourPartitionMapper {
+  ...
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Define your component as a streaming component.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Define that your component may be stopped under conditions.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>There are two reading stop conditions (can be combined):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>maxDurationMs</code> : stop after <em>n</em> milliseconds elapsed.</p>
+</li>
+<li>
+<p><code>maxRecords</code> : stop after <em>n</em> records read.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>See next subsections for configuring those values.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+If you choose to use a <code>stoppable</code> streaming component, you will have certainly to adapt your code according the backend technology and how to read values. For instance, if in your component you read 100 values at once and the <code>maxRecords</code> value is 50, you may lose 50 values (if the 100 values were acknowledged).
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In that case, to build a correct strategy in your component, you can access to stop condition values.
+To access these informations use the <code>@PostConstruct</code> method with <code>@Option</code> annotation in your Emitter class.</p>
+</div>
+<div class="paragraph">
+<p>Available options:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Option.MAX_DURATION_PARAMETER</code> : reflects the <code>maxDurationMs</code> parameter.</p>
+</li>
+<li>
+<p><code>Option.MAX_RECORDS_PARAMETER</code> : reflects the <code>maxRecords</code> parameter.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Here a code sample:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Version
+@PartitionMapper(name = "Input", infinite = true, stoppable = true)
+public class YourPartitionMapper {
+    // partition mapper code
+
+    @Emitter
+    public YourEmitter createWorker() {
+        return new YourEmitter(configuration);
+    }
+}
+
+public class YourEmitter {
+
+    @PostConstruct
+    public void init(@Option(Option.MAX_DURATION_PARAMETER) long maxDurationMs, @Option(Option.MAX_RECORDS_PARAMETER) long maxRecords ) {
+    	// connector's specific logic here
+    }
+    // other component's code
+}</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configuring_streaming_stop_strategy_during_job_design_time"><a class="anchor" href="#_configuring_streaming_stop_strategy_during_job_design_time"></a>Configuring streaming stop strategy during job design time</h3>
+<div class="paragraph">
+<p>If your streaming connector (<code>infinite=true</code>) is defined with the <code>stoppable=true</code>, you will have a design time UI for specifying stop strategy:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cloud</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><a class="image" href="_images/streaming-limits-ui-cloud.png" target="_blank" rel="noopener"><img src="_images/streaming-limits-ui-cloud.png" alt="Stream Toggle"></a></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Studio</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><a class="image" href="_images/streaming-limits-ui-studio.png" target="_blank" rel="noopener"><img src="_images/streaming-limits-ui-studio.png" alt="Stream Toggle"></a></span></p>
+</div>
+<div class="paragraph">
+<p>By default, in the setting those values are set to <strong>-1</strong>. It means <em>infinity</em> behavior.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_other_ways_for_configuring_streaming_stop_strategy"><a class="anchor" href="#_other_ways_for_configuring_streaming_stop_strategy"></a>Other ways for configuring streaming stop strategy</h3>
+<div class="paragraph">
+<p>At runtime, you can set system properties to apply the strategy. You need to prefix properties with the component&#8217;s family.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>&lt;family&gt;.talend.input.streaming.maxRecords</code></p>
+</li>
+<li>
+<p><code>&lt;family&gt;.talend.input.streaming.maxDurationMs</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can also use the <a href="services-built-in.html#_localconfiguration" class="xref page">LocalConfiguration</a> (see next section) with the following properties:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>talend.input.streaming.maxRecords</code></p>
+</li>
+<li>
+<p><code>talend.input.streaming.maxDurationMs</code></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -976,7 +1139,7 @@ For more clarity in the formulas below, parameter names have been replaced with 
 
                 <ul>
                     <li>
-                      <a class="article-side-actions-link" target="_blank" href="https://github.com/Talend/component-runtime/blob/component-runtime-1.38.16/documentation/src/main/antora/modules/ROOT/pages/component-implementing-streaming.adoc">
+                      <a class="article-side-actions-link" target="_blank" href="https://github.com/Talend/component-runtime/edit/master/documentation/src/main/antora/modules/ROOT/pages/component-implementing-streaming.adoc">
                         <i class="fa fa-edit"></i> &nbsp; &nbsp; Suggest an edit
                       </a>
                     </li>

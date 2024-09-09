@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Talend Component Kit Developer Reference Guide :: Contributing to Talend Component Kit documentation</title>
     <link rel="canonical" href="https://talend.github.io/component-runtime/main/latest/how-to-contribute.html">
+    <meta name="description" content="Lear how to contribute to component-runtime documentation">
+    <meta name="keywords" content="documentation, asciidoc, asciidoctor, contributor">
     <meta name="generator" content="Talend Component Kit Generator">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Contributing to Talend Component Kit documentation :: Talend Component Kit Developer Reference Guide</title>
     <link rel="canonical" href="https://talend.github.io/component-runtime/main/latest/how-to-contribute.html">
+    <meta name="description" content="Lear how to contribute to component-runtime documentation">
+    <meta name="keywords" content="documentation, asciidoc, asciidoctor, contributor">
     <meta name="generator" content="Antora 3.0.1">
-<meta name="date" content="2024-09-05T00:48:35.811Z" scheme="YYYY-MM-DDTHH:mm:ss.sssZ">
+<meta name="date" content="2024-09-09T08:23:35.621Z" scheme="YYYY-MM-DDTHH:mm:ss.sssZ">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha256-NuCn4IvuZXdBaFKJOAcsU2Q3ZpwbdFisd5dux4jkQ5w=" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/idea.min.css" integrity="sha256-rD61BPsgKHzJPyg7vpXaYOw6tMYuY2fz1p9033NYeM8=" crossorigin="anonymous" />
@@ -82,15 +86,12 @@
         <a class="navbar-single-link" href="https://talend.github.io/component-runtime/main/latest/index.html">Talend Component Kit</a>
         <div class="btn-group navbar-versions">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                ${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}
+                1.65.0 (dev)
               <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
                 <li class="navbar-item version">
-                    <a href="index.html">${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</a>
-                </li>
-                <li class="navbar-item version">
-                    <a href="../1.65.0/index.html">1.65.0</a>
+                    <a href="index.html">1.65.0</a>
                 </li>
                 <li class="navbar-item version">
                     <a href="../1.64.7/index.html">1.64.7</a>
@@ -223,6 +224,9 @@
                 </li>
                 <li class="navbar-item version">
                     <a href="../1.39.3/index.html">1.39.3</a>
+                </li>
+                <li class="navbar-item version">
+                    <a href="../1.38.16/index.html">1.38.16</a>
                 </li>
                 <li class="navbar-item version">
                     <a href="../1.38.15/index.html">1.38.15</a>
@@ -436,7 +440,7 @@
     </nav>
 </header>
             <main class="main">
-              <div class="navigation-container grey-background hidden-xs col-sm-2" data-component="main" data-version="${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}">
+              <div class="navigation-container grey-background hidden-xs col-sm-2" data-component="main" data-version="1.65.0">
   <aside class="navigation" role="navigation">
     <div class="panels">
       <div class="input-group nav-filter-group">
@@ -669,9 +673,6 @@
   </li>
   <li data-depth="2">
     <a class="menu-link" href="documentation-rest.html">Component server and HTTP API</a>
-  </li>
-  <li data-depth="2">
-    <a class="menu-link" href="vault-proxy.html">Component Server Vault Proxy</a>
   </li>
 </ul>
   </li>
@@ -913,8 +914,8 @@ It is a best practices that all sublevels added to the document are kept consist
 </div>
 <div class="paragraph">
 <p>When possible, avoid going lower than section 2 (<code>===</code>) to keep the page readable.
-In the HTML output, the document title is rendered as &lt;h1&gt;, section 1 titles as &lt;h2&gt;, etc.
-The "in-page" navigation available on the right side of the HTML rendering only considers &lt;h2&gt; and &lt;h3&gt; elements. Other levels are ignored to keep the navigation readable and simple.</p>
+In the HTML output, the document title is renderedh1, section 1 titles as h2, etc.
+The "in-page" navigation available on the right side of the HTML rendering only considers h2 and h3 elements. Other levels are ignored to keep the navigation readable and simple.</p>
 </div>
 </div>
 <div class="sect2">
@@ -936,7 +937,7 @@ include::doc2.adoc[leveloffset=+1]</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>In this case, both doc1.adoc and doc2.adoc are rendered in the same page and their content is offset by one level, meaning that the document title of doc1 becomes a section 1 title (&lt;h2&gt;) instead of an &lt;h1&gt; in the final rendering, and so on.</p>
+<p>In this case, both doc1.adoc and doc2.adoc are rendered in the same page and their content is offset by one level, meaning that the document title of doc1 becomes a section 1 title (h2) instead of an h1 in the final rendering, and so on.</p>
 </div>
 <div class="paragraph">
 <p>Note that both doc1.adoc and doc2.adoc will in addition be rendered as standalone pages (doc1.html and doc2.html).</p>
@@ -964,7 +965,7 @@ If necessary, you can add more parameters separated by a comma between the same 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Use values in % for image size. For example; <code>image:landscape.png[Landscape,70%,window="_blank",link="https://talend.github.io/component-runtime/main/${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}/_images/landscape.png"]</code>
+Use values in % for image size. For example; <code>image:landscape.png[Landscape,70%,window="_blank",link=self]</code>
 </td>
 </tr>
 </table>
@@ -1074,15 +1075,15 @@ code codeblock
 
 === Section 2 title
 
-image:my_image.png[The image,window="_blank",link="https://talend.github.io/component-runtime/main/{page-component-version}/_images/my_image.png",300]
+image:my_image.png[The image,window="_blank",link=self,300]
 
 .Table title for a table with 2 columns that contain images
 [cols="1a,1a",role="table gallery table-striped",options="header,autowidth"]
 |===
 |Studio Rendering | Web Rendering
 
-|image::gallery/widgets/studio/list.png[Studio List,100%,window="_blank",link="https://talend.github.io/component-runtime/main/{page-component-version}/_images/gallery/widgets/studio/list.png"]
-|image::gallery/widgets/web/list.png[Web List,100%,window="_blank",link="https://talend.github.io/component-runtime/main/{page-component-version}/_images/gallery/widgets/web/list.png"]
+|image::gallery/widgets/studio/list.png[Studio List,100%,window="_blank",link=self]
+|image::gallery/widgets/web/list.png[Web List,100%,window="_blank",link=self]
 |===
 
 == Section 1 title
@@ -1105,7 +1106,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
                 <ul>
                     <li>
-                      <a class="article-side-actions-link" target="_blank" href="https://github.com/Talend/component-runtime/blob/component-runtime-1.38.16/documentation/src/main/antora/modules/ROOT/pages/how-to-contribute.adoc">
+                      <a class="article-side-actions-link" target="_blank" href="https://github.com/Talend/component-runtime/edit/master/documentation/src/main/antora/modules/ROOT/pages/how-to-contribute.adoc">
                         <i class="fa fa-edit"></i> &nbsp; &nbsp; Suggest an edit
                       </a>
                     </li>

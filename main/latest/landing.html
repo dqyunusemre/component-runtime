@@ -11,7 +11,7 @@
     <title>Talend Component Kit :: Talend Component Kit Developer Reference Guide</title>
     <link rel="canonical" href="https://talend.github.io/component-runtime/main/latest/landing.html">
     <meta name="generator" content="Antora 3.0.1">
-<meta name="date" content="2024-09-05T00:48:35.841Z" scheme="YYYY-MM-DDTHH:mm:ss.sssZ">
+<meta name="date" content="2024-09-09T08:23:35.655Z" scheme="YYYY-MM-DDTHH:mm:ss.sssZ">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha256-NuCn4IvuZXdBaFKJOAcsU2Q3ZpwbdFisd5dux4jkQ5w=" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/idea.min.css" integrity="sha256-rD61BPsgKHzJPyg7vpXaYOw6tMYuY2fz1p9033NYeM8=" crossorigin="anonymous" />
@@ -83,15 +83,12 @@
         <a class="navbar-single-link" href="https://talend.github.io/component-runtime/main/latest/index.html">Talend Component Kit</a>
         <div class="btn-group navbar-versions">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                ${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}
+                1.65.0 (dev)
               <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
                 <li class="navbar-item version">
-                    <a href="index.html">${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</a>
-                </li>
-                <li class="navbar-item version">
-                    <a href="../1.65.0/index.html">1.65.0</a>
+                    <a href="index.html">1.65.0</a>
                 </li>
                 <li class="navbar-item version">
                     <a href="../1.64.7/index.html">1.64.7</a>
@@ -224,6 +221,9 @@
                 </li>
                 <li class="navbar-item version">
                     <a href="../1.39.3/index.html">1.39.3</a>
+                </li>
+                <li class="navbar-item version">
+                    <a href="../1.38.16/index.html">1.38.16</a>
                 </li>
                 <li class="navbar-item version">
                     <a href="../1.38.15/index.html">1.38.15</a>
@@ -441,12 +441,17 @@
 <main aria-label="Content" class="landing main">
   <div class="container landing-container">
     <div class="landing-content">
-      <h1 id="landing-teaser" class="sect0"><a class="anchor" href="#landing-teaser"></a>Talend Component Kit</h1>
-<div class="paragraph">
+      <div id="preamble">
+<div class="sectionbody">
+<div id="landing-teaser" class="paragraph">
 <p>Customize your connectivity and integrate with thousands of components harmlessly
 to get the best of your data quickly!</p>
 </div>
-<h1 id="_create_your_first_component" class="sect0"><a class="anchor" href="#_create_your_first_component"></a>Create your first component</h1>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_create_your_first_component"><a class="anchor" href="#_create_your_first_component"></a>Create your first component</h2>
+<div class="sectionbody">
 <div class="openblock col-sm-6 landing-curl-text">
 <div class="content">
 <div class="paragraph">
@@ -480,7 +485,11 @@ $ cd gettingstarted-component/
 $ chmod +x mvnw &amp;&amp; ./mvnw install talend-component:web</code></pre>
 </div>
 </div>
-<h1 id="landing-doc-link" class="sect0"><a class="anchor" href="#landing-doc-link"></a>What&#8217;s next?</h1>
+</div>
+</div>
+<div class="sect1">
+<h2 id="landing-doc-link"><a class="anchor" href="#landing-doc-link"></a>What&#8217;s next?</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><span class="icon col-sm-offset-1 col-sm-2 fa-5x documentationindex-icon"><i class="fa fa-book-open"></i></span></p>
 </div>
@@ -489,6 +498,8 @@ $ chmod +x mvnw &amp;&amp; ./mvnw install talend-component:web</code></pre>
 <div class="paragraph">
 <p>Your component is ready? Let&#8217;s see how to enhance it and deploy it in Talend
 Applications thanks to our <a href="index-tutorials.html">Tutorials</a>.</p>
+</div>
+</div>
 </div>
 </div>
 </div>

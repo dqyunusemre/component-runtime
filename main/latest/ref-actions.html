@@ -11,7 +11,7 @@
     <title>List of available actions :: Talend Component Kit Developer Reference Guide</title>
     <link rel="canonical" href="https://talend.github.io/component-runtime/main/latest/ref-actions.html">
     <meta name="generator" content="Antora 3.0.1">
-<meta name="date" content="2024-09-05T00:48:35.866Z" scheme="YYYY-MM-DDTHH:mm:ss.sssZ">
+<meta name="date" content="2024-09-09T08:23:35.682Z" scheme="YYYY-MM-DDTHH:mm:ss.sssZ">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha256-NuCn4IvuZXdBaFKJOAcsU2Q3ZpwbdFisd5dux4jkQ5w=" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/idea.min.css" integrity="sha256-rD61BPsgKHzJPyg7vpXaYOw6tMYuY2fz1p9033NYeM8=" crossorigin="anonymous" />
@@ -82,15 +82,12 @@
         <a class="navbar-single-link" href="https://talend.github.io/component-runtime/main/latest/index.html">Talend Component Kit</a>
         <div class="btn-group navbar-versions">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                ${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}
+                1.65.0 (dev)
               <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
                 <li class="navbar-item version">
-                    <a href="index.html">${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</a>
-                </li>
-                <li class="navbar-item version">
-                    <a href="../1.65.0/index.html">1.65.0</a>
+                    <a href="index.html">1.65.0</a>
                 </li>
                 <li class="navbar-item version">
                     <a href="../1.64.7/index.html">1.64.7</a>
@@ -223,6 +220,9 @@
                 </li>
                 <li class="navbar-item version">
                     <a href="../1.39.3/index.html">1.39.3</a>
+                </li>
+                <li class="navbar-item version">
+                    <a href="../1.38.16/index.html">1.38.16</a>
                 </li>
                 <li class="navbar-item version">
                     <a href="../1.38.15/index.html">1.38.15</a>
@@ -436,7 +436,7 @@
     </nav>
 </header>
             <main class="main">
-              <div class="navigation-container grey-background hidden-xs col-sm-2" data-component="main" data-version="${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}">
+              <div class="navigation-container grey-background hidden-xs col-sm-2" data-component="main" data-version="1.65.0">
   <aside class="navigation" role="navigation">
     <div class="panels">
       <div class="input-group nav-filter-group">
@@ -670,9 +670,6 @@
   <li data-depth="2">
     <a class="menu-link" href="documentation-rest.html">Component server and HTTP API</a>
   </li>
-  <li data-depth="2">
-    <a class="menu-link" href="vault-proxy.html">Component Server Vault Proxy</a>
-  </li>
 </ul>
   </li>
   <li data-depth="1">
@@ -833,6 +830,37 @@
 </div>
 </div>
 <div class="sect1">
+<h2 id="_dynamic_dependencies"><a class="anchor" href="#_dynamic_dependencies"></a>Dynamic Dependencies</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Mark a method as returning a list of dynamic dependencies with GAV formatting.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Type: <code>dynamic_dependencies</code></p>
+</li>
+<li>
+<p>API: <code>@org.talend.sdk.component.api.service.dependency.DynamicDependencies</code></p>
+</li>
+<li>
+<p>Returned type: <code>java.util.List</code></p>
+</li>
+<li>
+<p>Sample:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">{
+
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_dynamic_values"><a class="anchor" href="#_dynamic_values"></a>Dynamic Values</h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -952,7 +980,67 @@
   "metadata":[
   ],
   "props":{
+    "talend.fields.order":"column1,column2"
+  },
+  "type":"RECORD"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_schema_extended"><a class="anchor" href="#_schema_extended"></a>Schema Extended</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Mark a method as returning a Schema resulting from a connector configuration and some other parameters.Parameters can be an incoming schema and/or an outgoing branch.`value' name should match the connector&#8217;s name.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Type: <code>schema_extended</code></p>
+</li>
+<li>
+<p>API: <code>@org.talend.sdk.component.api.service.schema.DiscoverSchemaExtended</code></p>
+</li>
+<li>
+<p>Returned type: <code>org.talend.sdk.component.api.record.Schema</code></p>
+</li>
+<li>
+<p>Sample:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-js hljs" data-lang="js">{
+  "entries":[
+    {
+      "comment":"The column 1",
+      "metadata":false,
+      "name":"column1",
+      "nullable":false,
+      "props":{
 
+      },
+      "rawName":"column 1",
+      "type":"STRING"
+    },
+    {
+      "comment":"The int column",
+      "metadata":false,
+      "name":"column2",
+      "nullable":false,
+      "props":{
+
+      },
+      "rawName":"column 2",
+      "type":"INT"
+    }
+  ],
+  "metadata":[
+  ],
+  "props":{
+    "talend.fields.order":"column1,column2"
   },
   "type":"RECORD"
 }</code></pre>
@@ -1118,7 +1206,7 @@ always ensure you don&#8217;t require this action in your component.
 
                 <ul>
                     <li>
-                      <a class="article-side-actions-link" target="_blank" href="https://github.com/Talend/component-runtime/blob/component-runtime-1.38.16/documentation/src/main/antora/modules/ROOT/pages/ref-actions.adoc">
+                      <a class="article-side-actions-link" target="_blank" href="https://github.com/Talend/component-runtime/edit/master/documentation/src/main/antora/modules/ROOT/pages/ref-actions.adoc">
                         <i class="fa fa-edit"></i> &nbsp; &nbsp; Suggest an edit
                       </a>
                     </li>
